@@ -1,6 +1,6 @@
 %% mindreadtestobj-12scrn.pl
 
-%% N is 2*2*3*6,texttobr2(N). %% 100 As for 2 (turned on then off)*2 (to and from computer)*3 (rb, itself (already done), rb, gg or b)*6 (6 objects)
+%% N is 2*2*3*6,texttobr2(N). %% 100 As for 2 (turned on then off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*6 (6 objects)
 %% then texttobr2(40).to turn  off these with 250s before start - also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
 %% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
@@ -27,7 +27,7 @@
 
 daysbspeoplearmy:-
 	daysbspeoplearmy(45),
-	daysbspeoplearmy(2). %% Give to people with gg or b, rb
+	daysbspeoplearmy(2). %% Give to people with graciously give or blame, radio button for graciously give or blame
 
 daysbspeoplearmy(0):-!.
 daysbspeoplearmy(N1):-
