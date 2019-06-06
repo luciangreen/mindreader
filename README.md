@@ -12,3 +12,6 @@ run each using sectest0.
 These quantum experiments have stopped working, showing that there is something different on the second day.  They can be used to "give" thoughts about their topics.  The rest of the mind reading programs are in the List Prolog repository.
 
 Caution: follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
+
+2*50 sentence As for mind-reader per day
+- to enable mind reader
