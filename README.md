@@ -4,7 +4,7 @@ Contains Prolog programs that can be used by an individual to read their mind us
 So far, contains characterbr.pl, that helps generate 250 word breasoning traces of the algorithm drawing characters, used to recognise those characters.
 
 June 2019
-Load each as ['file']. given filename.pl
+Load each as ['filename']. given filename.pl
 
 run each using sectest0.
 %% before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
