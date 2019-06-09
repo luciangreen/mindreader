@@ -13,5 +13,7 @@ These quantum experiments have stopped working, showing that there is something 
 
 Caution: follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
 
-2*50 sentence As for mind-reader per day
+2*50 sentence As (A is 4*4000 breasonings) for mind-reader per day
 - to enable mind reader
+
+See https://www.lucianacademy.com/files/Philosophy/LucianGreensPhilosophyJune2019/Clearing%20away%20mind%20reading%20interference.txt regarding Clearing away mind reading interference.
