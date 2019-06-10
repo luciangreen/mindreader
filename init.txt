@@ -1,7 +1,10 @@
-%% Instructions to initialise each algorithm before running for the first time:
+%% Instructions to initialise each algorithm before running for the first time.
+
+%% Enter each line one at a time, not together
 
 %% Load texttobr2, texttobr
 [meditationnoreplace].
+[texttobr2qb].
 
 %% 50 done up As for training, 50 done up As on my side
 time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
@@ -68,7 +71,7 @@ texttobr2(6).
 N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
 N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
 
-%% also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
+%% also breason out and dot on (parts of) characters before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
 %% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
 
