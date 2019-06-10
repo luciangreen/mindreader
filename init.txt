@@ -6,6 +6,8 @@
 %% 50 done up As for training, 50 done up As on my side
 time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
 
+%% FOR OBJECTS:
+
 %% 250s for dotting yourself on speaking and dotting yourself receiving, and yourself speaking and yourself receiving
 
 texttobr2(2).
@@ -32,8 +34,39 @@ texttobr2(1).
 texttobr2(6).
 texttobr2(6).
 
-N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
-N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+N is 2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+N is 2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+
+%% FOR CHARACTERS:
+
+%% 250s for dotting yourself on speaking and dotting yourself receiving, and yourself speaking and yourself receiving
+
+texttobr2(2).
+
+%% Do 250 breasonings for binary oppositions for front, behind, above and below object being recognised, and protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(4).
+texttobr2(4).
+
+%% Do 250s for quarter master and object binary oppositions x's for left, right, front, back, top, and bottom object being recognised, with protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(6).
+texttobr2(6).
+
+N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
+N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
 
 %% also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
