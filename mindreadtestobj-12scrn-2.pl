@@ -1,7 +1,8 @@
 %% mindreadtestobj-12scrn.pl
 
 %% *** Important: initialise program before running for the first time:
-%% N is 2*2*3*5,texttobr2(N). %% 100 As for 2 (turned on then off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects)
+%% N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects)
+%% N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects)
 %% also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
 %% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
