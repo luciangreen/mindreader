@@ -3,17 +3,15 @@ Contains Prolog programs that can be used by an individual to read their mind us
 
 So far, contains characterbr.pl, that helps generate 250 word breasoning traces of the algorithm drawing characters, used to recognise those characters.
 
-June 2019
 Load each as ['filename']. given filename.pl
 
 run each using sectest0.
 %% before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
-These quantum experiments have stopped working, showing that there is something different on the second day.  They can be used to "give" thoughts about their topics.  The rest of the mind reading programs are in the List Prolog repository.
+The rest of the mind reading programs are in the List Prolog repository.
 
 Caution: follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
 
-2*50 sentence As (A is 4*4000 breasonings) for mind-reader per day
-- to enable mind reader
+Please read init.txt to initialise any new mind reading algorithms.
 
 See https://www.lucianacademy.com/files/Philosophy/LucianGreensPhilosophyJune2019/Clearing%20away%20mind%20reading%20interference.txt regarding Clearing away mind reading interference.
