@@ -1,0 +1,49 @@
+%% Instructions to initialise each algorithm before running for the first time:
+
+%% Load texttobr2, texttobr
+[meditationnoreplace].
+
+%% 50 done up As for training, 50 done up As on my side
+time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
+
+%% 250s for dotting yourself on speaking and dotting yourself receiving, and yourself speaking and yourself receiving
+
+texttobr2(2).
+
+%% Do 250 breasonings for binary oppositions for front, behind, above and below object being recognised, and protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(4).
+texttobr2(4).
+
+%% Do 250s for quarter master and object binary oppositions x's for left, right, front, back, top, and bottom object being recognised, with protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(6).
+texttobr2(6).
+
+N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+
+%% also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
+
+%% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
+
+%% teach subjects these skills telepathically one by one
+
+%% Before using, think 2 radio buttons put on recordings put through with prayer, nut and bolt, quantum box prayer, 1 1 0.5, 1 1 0.5 cm
+
+%% The algorithm has at times projected and identified my thought correctly but many of the figures are too similar
+
+%% Sometimes I had the feeling of a quick representation taken from me before I could speak, people "talking for me" (in any case, a false reading) and other options appearing above mine, and sometimes breasonings I said "stickily" matching a different option from what I meant registered as the option
+
