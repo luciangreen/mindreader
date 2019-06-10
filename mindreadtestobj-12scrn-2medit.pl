@@ -35,23 +35,23 @@ sectest(N,S1,S2):-
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["seed"]),
+	writeln(["characterbreasoner"]),
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["water"]),
+	writeln(["1451"]),
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["dam"]),
+	writeln(["texttobr2"]),
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["redblackduck"]),
+	writeln(["daily_regimen_meditation"]),
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["lorelle"]),
+	writeln(["list_prolog_interpreter"]),
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
@@ -60,7 +60,7 @@ sectest(N,S1,S2):-
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
 	**/
-	writeln(["The computer will think of one of the following thoughts in 5 seconds.", "seed","water","dam","redblackduck","lorelle"/**,"adrian"
+	writeln(["The computer will think of one of the following thoughts in 5 seconds.", "characterbreasoner","1451","texttobr2","daily_regimen_meditation","list_prolog_interpreter"/**,"adrian"
 	**/
 	]),
 	texttobr2(2), %% for 100 As for screen to display white background
@@ -68,7 +68,7 @@ sectest(N,S1,S2):-
 	sleep(5),
 	writeln(["Now"]),
 	sleep(1),
-	random_member(A,["seed","water","dam","redblackduck","lorelle"
+	random_member(A,["characterbreasoner","1451","texttobr2","daily_regimen_meditation","list_prolog_interpreter"
 	/**,"adrian"
 	**/
 	]),
@@ -76,7 +76,7 @@ sectest(N,S1,S2):-
 	texttobr2(2), %% for 100 As for screen to display white background
 	texttobr2(2), %% for 100 As for screen to display A
 	sleep(5),
-	writeln(["Think of the object the computer thought of in 1 second.", "seed","water","dam","redblackduck","lorelle"/**,"adrian"
+	writeln(["Think of the object the computer thought of in 1 second.", "characterbreasoner","1451","texttobr2","daily_regimen_meditation","list_prolog_interpreter"/**,"adrian"
 	**/
 	]),
 	texttobr2(2), %% for 100 As for screen to display white background
@@ -85,11 +85,11 @@ sectest(N,S1,S2):-
 	%% Test thought here.
 	%%writeln(["Now"]),
 	%%get_time(TS),stamp_date_time(TS,T,local),writeln([dateandtime,T]),
-	trialy2_15("seed",R1),
-	trialy2_15("water",R2),
-	trialy2_15("dam",R3),
-	trialy2_15("redblackduck",R4),
-	trialy2_15("lorelle",R5),
+	trialy2_15("characterbreasoner",R1),
+	trialy2_15("1451",R2),
+	trialy2_15("texttobr2",R3),
+	trialy2_15("daily_regimen_meditation",R4),
+	trialy2_15("list_prolog_interpreter",R5),
 	R=[R1,R2,R3,R4,R5],%%,R6,R7,R8,R9,R10,R11,R12,R13,R14,R15,R16,R17,R18,R19,R20,R21,R22,R23,R24,R25,R26,R27],
 	sort(R,RA),
 	reverse(RA,RB),
