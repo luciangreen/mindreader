@@ -1,26 +1,3 @@
-%% mindreadtestobj-12scrn.pl
-
-%% *** Important: initialise program before running for the first time:
-%% N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects)
-%% N is 1*2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects)
-%% also breason out and dot on objects before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
-
-%% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
-
-%% teach subjects these skills telepathically one by one
-
-%% Before using, think 2 radio buttons put on recordings put through with prayer, nut and bolt, quantum box prayer, .01 .01 .005 .01 .01 .005
-
-%% The algorithm has at (different x) times projected and identified my thought correctly but many of the figures are too similar
-
-%% br done on 25 5 19 for all time
-
-%% ideas: goats play board games against each other, they learn br, they ask questions and request games, the computer runs in real time and runs one game at a time, so they need to be scheduled.  Also tournaments of br tests, maths, computer science, and games. Humanities texts come later.
-
-%% Sometimes I had the feeling of a quick representation taken from me before I could speak, people "talking for me" (in any case, a false reading) and other options appearing above mine, and sometimes breasonings I said "stickily" matching a different option from what I meant registered as the option
-
-%% The removal of interference with the interquartile range, increase to pointer to 100 done up As for projection and reading and breasoning preparation steps including As given to and doing breasoning out the answer led to better results
-
 %%use_module(library(pio)).
 
 :- use_module(library(date)).
