@@ -80,6 +80,7 @@ texttobr2(6).
 texttobr2(6).
 
 %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
+%% Breason out pixels in e.g. https://www.fontspace.com/lucian-academy/lucianshandbitmap
 
 texttobr2(3). %% * 26
 
