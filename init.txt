@@ -1,5 +1,7 @@
 %% Instructions to initialise each algorithm before running for the first time.
 
+%% Before pasting, to avoid medical issues and make it work, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
+
 %% Enter each line one at a time, not together
 
 %% Load texttobr2, texttobr
@@ -8,6 +10,9 @@
 
 %% 50 done up As for training, 50 done up As on my side
 time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
+
+texttobr2(3). %% indicates training radio button, radio button to graciously give and graciously give 250 breasonings for training
+texttobr2(3). %% indicates training on our side radio button, radio button to graciously give and graciously give 250 breasonings for training on our side
 
 %% FOR OBJECTS:
 
@@ -37,8 +42,14 @@ texttobr2(1).
 texttobr2(6).
 texttobr2(6).
 
-N is 2*3*5,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
-N is 2*3*5,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+%% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 letters to recognise)
+
+texttobr2(3). %% * 5
+
+%% 100 As for 2 (protections and turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+
+N is 3*5,texttobr2(N).
+N is 3*5,texttobr2(N).
 
 %% FOR CHARACTERS:
 
@@ -68,8 +79,14 @@ texttobr2(1).
 texttobr2(6).
 texttobr2(6).
 
-N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
-N is 2*3*26,texttobr2(N). %% 100 As for 1 (turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
+%% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
+
+texttobr2(3). %% * 26
+
+%% 100 As for 2 (protections and turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*26 (26 letters to recognise)
+
+N is 3*26,texttobr2(N).
+N is 3*26,texttobr2(N).
 
 %% also breason out and dot on (parts of) characters before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
