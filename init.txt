@@ -1,8 +1,11 @@
 %% Instructions to initialise each algorithm before running for the first time.
 
-%% Before pasting, to avoid medical issues and make it work, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
+%% Before pasting each line, to avoid medical issues and make it work, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
 %% Enter each line one at a time, not together
+
+
+%% Once per day
 
 %% Load texttobr2, texttobr
 [texttobr2].
@@ -10,6 +13,9 @@
 
 %% 50 done up As for training, 50 done up As on my side
 time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
+
+
+%% Once per algorithm
 
 %% Load 250 breasonings texttobr2qb.
 
