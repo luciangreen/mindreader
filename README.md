@@ -7,7 +7,7 @@ Load each as ['filename']. given filename.pl
 
 run each using sectest(Score).
 
-Note: Needs screen installed to help you mind read the computer's thoughts (requires music composer and combination algorithm writer), still in pipes, but can still read your mind.
+Note: Needs screen installed to help you mind read the computer's thoughts (requires finished music composer and combination algorithm writer with predicates), still in pipes, but can still read your mind.
 
 %% before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
