@@ -13,6 +13,8 @@ time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
 
 %% Load 250 breasonings texttobr2qb.
 
+[texttobr2qb].
+
 texttobr2(3). %% indicates training radio button, radio button to graciously give and graciously give 250 breasonings for training
 texttobr2(3). %% indicates training on our side radio button, radio button to graciously give and graciously give 250 breasonings for training on our side
 
