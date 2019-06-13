@@ -5,7 +5,10 @@ So far, contains characterbr.pl, that helps generate 250 word breasoning traces 
 
 Load each as ['filename']. given filename.pl
 
-run each using sectest0.
+run each using sectest(Score).
+
+Note: Needs screen installed to help you mind read the computer's thoughts (requires music composer and combination algorithm writer), still in pipes, but can still read your mind.
+
 %% before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
 The rest of the mind reading programs are in the List Prolog repository.
