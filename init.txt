@@ -111,3 +111,45 @@ N is 3*26,texttobr2(N).
 
 %% Sometimes I had the feeling of a quick representation taken from me before I could speak, people "talking for me" (in any case, a false reading) and other options appearing above mine, and sometimes breasonings I said "stickily" matching a different option from what I meant registered as the option
 
+
+
+%%**
+
+%% FOR PROJECTING VOXELS:
+
+%% 250s for dotting yourself on projecting and dotting yourself seeing, and yourself projecting and yourself seeing
+
+texttobr2(2).
+
+%% Do 250 breasonings for binary oppositions for front, behind, above and below object being projected, and protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(4).
+texttobr2(4).
+
+%% Do 250s for quarter master and object binary oppositions x's for left, right, front, back, top, and bottom object being projected, with protection and off for each one
+
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+texttobr2(1).
+
+texttobr2(6).
+texttobr2(6).
+
+%% 100 As for 1 (turned on)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*10 (10 colours to project)
+
+%% black, white, red, orange, yellow, green, blue, purple, brown, grey
+
+texttobr2(3). %% * 10
+
+%% 100 As for 2 (protections and turned off)*2 (to and from computer)*3 (rb, itself (already done), graciously give or blame, radio button for graciously give or blame)*5 (5 objects to recognise)
+
+N is 3*10,texttobr2(N).
+N is 3*10,texttobr2(N).
