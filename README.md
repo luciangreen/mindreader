@@ -28,32 +28,41 @@ See instructions on running below
 
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
-['texttobr2']. %% Import from Lucian Green's List Prolog Repository
+```
+['texttobr2'].
 ['texttobr'].
 texttobr2(u,"file-songs.txt",u,u).
 texttobr(u,"file-songs.txt",u,u).
 
 ['postsong'].
-postsong(10).  For ten songs
-
+postsong(10).  %% For ten songs
+```
 Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
+```
 texttobr2(u,"letter.txt",u,u).
 texttobr2(u,"file-letter.txt",u,u).
+```
 
 Running
 Recognise you thinking of objects
+```
 ['mindreadtestobj-12scrn-2'].
 sectest(1).
+```
 Replace 1 with the number of times to repeat algorithm.
 
 Recognise you thinking of more objects
+```
 ['mindreadtestobj-12scrn-2medit'].
 sectest(1).
+```
 Replace 1 with the number of times to repeat algorithm.
 
 Recognise you thinking of characters
+```
 ['mindreadtestobj-12scrn-2chars'].
 sectest(1).
+```
 Replace 1 with the number of times to repeat algorithm.
 
 # Versioning
