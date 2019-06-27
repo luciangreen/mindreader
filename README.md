@@ -1,43 +1,70 @@
-# mindreader
-Contains Prolog programs that can be used by an individual to read their mind using meditation
+# Mindreader
 
-So far, contains characterbr.pl, which helps generate 250-word breasoning traces of the algorithm drawing characters, used to recognise those characters.
+Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation.
 
-Load each as ['filename']. given filename.pl
+# Getting Started
 
-run each using sectest(Score).
+Please read the following instructions on how to install the project on your computer for writing code.
 
-Note: Needs screen installed to help you mind read the computer's thoughts (requires finished music composer and combination algorithm writer with predicates), still in pipes, but can still read your mind.
+# Prerequisites
 
-%% before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
+Lucian Green - List Prolog Interpreter Repository
 
-The rest of the mind reading programs are in the List Prolog repository.
+# Installing and Preparation
 
-Caution: follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
+Download Lucian Green's List Prolog Interpreter Repository and this repository.
 
-Please read init.txt to initialise any new mind-reading algorithms.
+**Caution**
 
-See https://www.lucianacademy.com/files/Philosophy/LucianGreensPhilosophyJune2019/Clearing%20away%20mind%20reading%20interference.txt regarding Clearing away mind reading interference.
+- Before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
-***
+- Follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
 
-%% To project the spiritual screen's pixels
-%% Follow instructions on init.txt on Lucian Green's mindreader GitHub repository for projecting voxels
+Please follow instructions in init.txt to initialise any new mind-reading algorithms.
 
-%% Do if there were not enough breasonings when running mindreadtestmusiccomposer-unusual.pl:
-%% Songs need 8*2000 not 4*4000 breasonings (which is the default on mindreadtestmusiccomposer-unusual.pl) to be done up because there are not enough words
-%% texttobr2(8,u,u,u). with 10 songs' asc2mid text files, lyrics (selected in Finder and) pasted into BBEdit file-songs.txt. - faster on VPS
-%% ['texttobr2']. %% Import from Lucian Green's List Prolog Repository
-%% ['texttobr'].
-%% texttobr2(u,"file-songs.txt",u,u).
-%% texttobr(u,"file-songs.txt",u,u).
+See instructions on running below
 
-%% postsong(10).  For ten songs - redo this for enough breasonings if you have run mindreadtestmusiccomposer-unusual.pl
+ **Important:** Eliminate interference once you have got the algorithm working with 4*4000 breasonings for it working: ['texttobr2'].  texttobr2(64). and eliminating any instances of interference with 250 breasonings: texttobr2(2). (2) for dotting on and doing it.
 
-%% Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
-%% texttobr2(u,"letter.txt",u,u).
-%% texttobr2(u,"file-letter.txt",u,u).
+Additional instructions for preparing to run screen projector:
+Breason out songs used to help project pixels.
+['texttobr2']. %% Import from Lucian Green's List Prolog Repository
+['texttobr'].
+texttobr2(u,"file-songs.txt",u,u).
+texttobr(u,"file-songs.txt",u,u).
 
-%% Following this, run using screen.pl: sectest0.
-%% Eliminate interference once you have got the algorithm working with 4*4000 breasonings for it working: texttobr2(64). and eliminating any instances of interference with 250 breasonings: texttobr2(2). (2) for dotting on and doing it.
+['postsong'].
+postsong(10).  For ten songs
+
+Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
+texttobr2(u,"letter.txt",u,u).
+texttobr2(u,"file-letter.txt",u,u).
+
+Running
+Recognise you thinking of objects
+['mindreadtestobj-12scrn-2'].
+sectest(1).
+Replace 1 with the number of times to repeat algorithm.
+
+Recognise you thinking of more objects
+['mindreadtestobj-12scrn-2medit'].
+sectest(1).
+Replace 1 with the number of times to repeat algorithm.
+
+Recognise you thinking of characters
+['mindreadtestobj-12scrn-2chars'].
+sectest(1).
+Replace 1 with the number of times to repeat algorithm.
+
+# Versioning
+
+We will use SemVer for versioning.
+
+# Authors
+
+Lucian Green - Initial programmer - <a href="https://www.lucianacademy.com/">Lucian Academy</a>
+
+# License
+
+I licensed this project under the BSD3 License - see the <a href="LICENSE">LICENSE.md</a> file for details
 
