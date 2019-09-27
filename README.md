@@ -16,7 +16,7 @@ Download Lucian Green's List Prolog Interpreter Repository and this repository.
 
 **Caution**
 
-- Before running texttobr-based mind reader, to avoid conjunctivitis and haemorrhoids, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
+- Before running texttobr-based mind reader, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
 - Follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
 
