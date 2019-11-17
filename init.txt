@@ -11,9 +11,13 @@
 [texttobr2].
 [texttobr].
 
+%%	texttobr2(2). %% Head of State to enable mind reading
+
 %% 50 done up As for training, 50 done up As on my side
 time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
 
+%% Important: please switch off algorithm after each use with Head of State with
+%%	texttobr2(2).
 
 %% Once per algorithm
 
