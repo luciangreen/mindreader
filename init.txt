@@ -10,6 +10,7 @@
 %% Load texttobr2, texttobr
 [texttobr2].
 [texttobr].
+[texttobr2qb].
 
 %%	texttobr2(2). %% Head of State to enable mind reading
 
