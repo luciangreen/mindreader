@@ -1,3 +1,7 @@
+**Currently Not Working**
+
+Mindreader is currently not working because it requires 10 algorithms to be inductively written for each mind read person per day.  It does not necessarily require the computer to meditate.
+
 # Mindreader
 
 Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation.
