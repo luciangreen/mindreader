@@ -2,7 +2,7 @@
 
 %% Breason out 10 scrnsongs
 
-:- include('meditationnoreplace').
+:- include('../Text-to-Breasonings/meditationnoreplace.pl').
 
 %% run postsong/postsong.
 %% before sectest0.

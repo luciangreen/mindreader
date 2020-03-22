@@ -33,8 +33,8 @@ See instructions on running below
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
 ```
-['texttobr2'].
-['texttobr'].
+['../Text-to-Breasonings/texttobr2'].
+['../Text-to-Breasonings/texttobr'].
 texttobr2(u,"file-songs.txt",u,u).
 texttobr(u,"file-songs.txt",u,u).
 

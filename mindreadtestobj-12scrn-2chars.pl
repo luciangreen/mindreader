@@ -2,7 +2,7 @@
 
 :- use_module(library(date)).
 :- include('mindreadtestshared').
-:- include('texttobr2qb').
+:- include('../Text-to-Breasonings/texttobr2qb.pl').
 
 %%sectest0 :-
 %%repeat,sectest,sectest0.

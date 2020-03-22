@@ -1,4 +1,4 @@
-:- include('meditationnoreplace').
+:- include('../Text-to-Breasonings/meditationnoreplace.pl').
 
 postsong(0) :- !.
 postsong(N1) :-
