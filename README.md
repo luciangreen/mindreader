@@ -12,8 +12,9 @@ Please read the following instructions on how to install the project on your com
 
 # Prerequisites
 
-Install List Prolog Interpreter Repository (https://github.com/luciangreen/listprologinterpreter) first.
+Install List Prolog Interpreter Repository (https://github.com/luciangreen/listprologinterpreter).
 
+Install Text to Breasonings Repository (https://github.com/luciangreen/Text-to-Breasonings).
 
 # Installation from List Prolog Package Manager (LPPM)
 
