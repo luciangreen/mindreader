@@ -1,6 +1,6 @@
 **Currently Not Working**
 
-Mindreader is currently not working even if 10 algorithms are inductively written for each mind read person per day.  It does not necessarily require the computer to meditate.
+Mindreader is currently not working even if 10 algorithms are inductively written for each mind read person per day.  It does not necessarily require the computer to simulate meditation.
 
 # Mindreader
 
@@ -74,6 +74,8 @@ Recognise you thinking of characters
 sectest(1).
 ```
 Replace 1 with the number of times to repeat algorithm.
+
+* If necessary, repeat the "arem" mantra all the time while the mind reading computation is running to ensure the best results.
 
 # Versioning
 
