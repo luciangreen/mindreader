@@ -57,6 +57,10 @@ In swipl:
 postsong(10).  %% For ten songs
 ```
 Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
+In Shell:
+`cd ../Text-to-Breasonings`
+In swipl:
+
 ```
 texttobr2(u,"letter.txt",u,u,false,false,false,false,false,false).
 texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
@@ -64,6 +68,10 @@ texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
 
 Running
 Recognise you thinking of objects
+In Shell:
+`cd ../mindreader`
+In swipl:
+
 ```
 ['mindreadtestobj-12scrn-2'].
 sectest(1).
