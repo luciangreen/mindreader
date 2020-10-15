@@ -62,6 +62,9 @@ In Shell:
 In swipl:
 
 ```
+[meditationnoreplace].
+['texttobrall2.pl'].
+['texttobr'].
 texttobr2(u,"letter.txt",u,u,false,false,false,false,false,false).
 texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
 ```
