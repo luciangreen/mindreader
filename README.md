@@ -1,6 +1,6 @@
 **Currently Not Working**
 
-Mindreader is currently not working even if 10 algorithms are inductively written for each mind read person per day.  It does not necessarily require the computer to simulate meditation.
+Mindreader is currently not working even if 10 algorithms are inductively written for each mind read person per day.  It does not necessarily require the computer to simulate meditation.  Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.
 
 # Mindreader
 
@@ -34,23 +34,32 @@ Please follow instructions in init.txt to initialise any new mind-reading algori
 
 See instructions on running below
 
- **Important:** Eliminate interference once you have got the algorithm working with 4*4000 breasonings for it working: ['texttobr2'].  texttobr2(64). and eliminating any instances of interference with 250 breasonings: texttobr2(2). (2) for dotting on and doing it.
+ **Important:** Eliminate interference once you have got the algorithm working with 4*4000 breasonings for it working: `['../Text-to-Breasonings/texttobr2qb.pl']`.  `texttobr2(64)`. and eliminating any instances of interference with 250 breasonings: `texttobr2(2).` (2) for dotting on and doing it.
 
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
+In Shell:
+`cd Text-to-Breasonings`
+In swipl:
 ```
-['../Text-to-Breasonings/texttobr2'].
-['../Text-to-Breasonings/texttobr'].
-texttobr2(u,"file-songs.txt",u,u).
-texttobr(u,"file-songs.txt",u,u).
+[meditationnoreplace].
+['texttobrall2.pl'].
+['texttobr'].
+texttobr2(u,"file-songs.txt",u,u,false,false,false,false,false,false).
+texttobr(u,"file-songs.txt",u,u,false,false,false,false,false,false).
 
+```
+In Shell:
+`cd ../mindreader`
+In swipl:
+```
 ['postsong'].
 postsong(10).  %% For ten songs
 ```
 Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
 ```
-texttobr2(u,"letter.txt",u,u).
-texttobr2(u,"file-letter.txt",u,u).
+texttobr2(u,"letter.txt",u,u,false,false,false,false,false,false).
+texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
 ```
 
 Running
