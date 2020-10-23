@@ -42,8 +42,7 @@ In Shell:
 `cd Text-to-Breasonings`
 In swipl:
 ```
-[meditationnoreplace].
-['texttobrall2.pl'].
+['text_to_breasonings.pl'].
 ['texttobr'].
 texttobr2(u,"file-songs.txt",u,u,false,false,false,false,false,false).
 texttobr(u,"file-songs.txt",u,u,false,false,false,false,false,false).
@@ -62,8 +61,7 @@ In Shell:
 In swipl:
 
 ```
-[meditationnoreplace].
-['texttobrall2.pl'].
+['text_to_breasonings.pl'].
 ['texttobr'].
 texttobr2(u,"letter.txt",u,u,false,false,false,false,false,false).
 texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
