@@ -58,7 +58,7 @@ O = [[[1, "a", 2], [2, "b", 3], [3, "c", -]], [[1, "a", 2], [2, "b", 6], [6, "e"
 
 remove [1, "a", 2],flatten
 does reordering cause a bug?
-
+replace in place, redo each time changed
 **/
 
 merge_lists2([N1,A1,_N2],Options2,Options6,Options9) :-
