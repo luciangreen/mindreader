@@ -77,6 +77,7 @@ merge_lists1(Options1,Options3a,Options3b) :-
 	append(Options3a,Options3c,Options3d),
 %%writeln1(	merge_lists2(Options4,Options6,Options3a,Options3c)),
 	merge_lists1(Options5,Options3d,Options3b).
+
 merge_lists1b([],Options,Options) :- !.
 merge_lists1b(Options1,Options3a,Options3b) :-
 	Options1=[Options4|Options5],
@@ -86,22 +87,31 @@ merge_lists1b(Options1,Options3a,Options3b) :-
 	append(Options3a,Options3c,Options3d),
 %%writeln1(	merge_lists2(Options4,Options6,Options3a,Options3c)),
 	merge_lists1b(Options5,Options3d,Options3b).
+
 **/
 
 /**
+
 [debug]  ?- merge_lists2([1, "a", 2],[4, "a", 5],[[[1, "a", 2], [2, "b", 3], [3, "c",-]], [[4, "a", 5], [5, "d", 6], [6, "e",-]]],O).
 O = [[[1, "a", 2], [2, "b", 3], [3, "c", -]], [[1, "a", 5], [5, "d", 6], [6, "e", -]]].
+
 [debug]  ?- merge_lists2([2, "b",3],[5, "b", 6],[[[1, "a", 2], [2, "b", 3], [3, "c",-]], [[1, "a", 5], [5, "b", 6], [6, "e",-]]],O).
 O = [[[1, "a", 2], [2, "b", 3], [3, "c", -]], [[1, "a", 2], [2, "b", 6], [6, "e", -]]].
+
 remove [1, "a", 2],flatten
 does reordering cause a bug?
 () replace in place, redo each time changed
+
 merge if no more than 1 parent of each node before it
 remove chains of 1-children
 flatten, sort at end
+
 * strings must be same length
+
 - same parents, etc in next level x whole thing
+
 debug each pred
+
 **/
 
 same_parents([N1,_A1,_N2],[N4,_A2,_N3],Options61) :-
@@ -210,8 +220,10 @@ merge_back_until_forward_fork1(N1,Options8,Options72,Options7,_N43,N42) :-
 	append(Options51,[[N41,A10,N1]],Options73),
 	append(Options72,Options73,Options74),
 	merge_back_until_forward_fork2(Rest,Options74,Options7,N41,N42).
+
 merge_back_until_forward_fork2([],Options7,Options7,N41,N41) :- !.
 merge_back_until_forward_fork2(_,_Options71,_Options72,_N41,_N42) :- fail.
+
 **/
 
 remove_chains_of_one_children1([-,_],Options1,Options2,Options3) :-
