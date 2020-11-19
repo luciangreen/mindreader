@@ -108,6 +108,8 @@ flatten, sort at end
 
 - same parents, etc in next level x whole thing
 
+debug each pred
+
 **/
 
 same_parents([N1,_A1,_N2],[N4,_A2,_N3],Options61) :-
