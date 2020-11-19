@@ -104,14 +104,19 @@ merge if no more than 1 parent of each node before it
 remove chains of 1-children
 flatten, sort at end
 
+* strings must be same length
+
+- same parents, etc in next level x whole thing
+
 **/
 
 same_parents([N1,_A1,_N2],[N4,_A2,_N3],Options61) :-
 	findall([B1,B2,N1],member([B1,B2,N1],Options61),C1),
 	findall([B3,B4,N4],member([B3,B4,N4],Options61),C2),
 	subtract(C2,C1,[]).
+	%% and vv?
 
-%% 
+
 merge_lists2([N1,A1,_N2],Options2,Options61,Options9) :-
 	Options2=[N4,A2,N3],
 	(A1=A2->
@@ -173,8 +178,7 @@ findall([A1,A2,A3,A4,A5],(member([A1,A2,A3],B),member([A3,A4,A5],Options8)),C1),
 	get_c(C)),Options11a),
 	maplist(append,[Options11a],[Options11]),
 	
-	findall([[A1,A2,A3],[A3,A4,A5]],(member([A1,A2,A3,A4,A5],C2),
-	get_c(C)),Options12a),
+	findall([[A1,A2,A3],[A3,A4,A5]],(member([A1,A2,A3,A4,A5],C2)),Options12a),
 	maplist(append,[Options12a],[Options12]).
 	%%group_by_same_destination2(B1,Options8,[],Options12),
 	
