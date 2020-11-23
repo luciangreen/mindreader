@@ -59,7 +59,7 @@ make_mind_reading_tree4_a(Options2a,Options3) :-
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
 	%trace,
 	sort(Options3a,Options3c),
-	%trace,
+	trace,
 	remove_chains_of_one_children1(1,Options3c,[],Options3b),
 	writeln1(remove_chains_of_one_children1(1,Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
@@ -156,7 +156,7 @@ merge_lists_a22(A,A5) :-
 merge_lists_a3(A6,Options1,%Options2,
 Options3) :-
 	A6=[[N1,A,N2]|A8],
-	delete(Options1,[N1,_,_],Options1a),
+	delete(Options1,[N1,A,_],Options1a),
 	%%(member([N1,A,N2],Options2)->(trace,Options2=Options2a,A9=A6);
 	(append(Options1a,[[N1,A,N2]],Options1aa)%%,A9=A8
 	),%),
@@ -515,6 +515,8 @@ remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 	%trace,
 %%writeln1(	remove_chains_of_one_children2(N1,N3,Options1,[],_Options4)),
 	remove_chains_of_one_children2(N0,N3,Options1,[],_Options41),
+	% * if N0=n3 there are a and b etc.
+	% could add a state on to the start x
 	%%append(Options4,[[N0,A,N3]],Options4a),
 	%trace,
 	member([_N01,A2,N3],Options1),
@@ -527,6 +529,8 @@ remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 %remove_chains_of_one_children2([-,A],[-,A],Options1,Options2,Options3) :-
 %	append(Options1,Options2,Options3),!.
 
+%remove_chains_of_one_children2(N1,N1,Options1,_Options2,_Options3) :-
+	%(member([N1,_,N22],Options1),member([N1,_,N23],Options1),not(N22=N23)),!.
 remove_chains_of_one_children2(N1,N3,Options1,_Options2,_Options3) :-
 	(N1=[-,_]->N3=N1;
 	(member([N1,_A,N2],Options1),member([N2,_,N22],Options1),member([N2,_,N23],Options1),not(N22=N23),N3=N2)),!.
