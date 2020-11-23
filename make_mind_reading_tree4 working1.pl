@@ -25,8 +25,8 @@ A = [[1, "a", [-, "aaa"]], [1, "b", [-, "aab"]], [1, "c", [-, "acc"]]].
 A = [[1, "b", [-, "ab"]], [1, "d", [-, "cd"]]].
 
 
-[debug]  ?- merge_lists_a([1],[[1,"a",2],[2,"b",3],[3,"c",[-,"abc"]],[1,"a",4],[4,"b",5],[5,"d",[-,"abc"]]],[],A),writeln1(A).                                  
-A = [[1, "a", 2], [2, "b", 3], [3, "c", [-, "abc"]], [3, "d", [-, "abc"]]] 
+[debug]  ?- merge_lists_a([1],[[1,"a",2],[2,"b",3],[3,"c",[-,"abc"]],[1,"a",4],[4,"b",5],[5,"d",[-,"abd"]]],[],A),writeln1(A).                                  
+A = [[1, "a", 2], [2, "b", 3], [3, "c", [-, "abc"]], [3, "d", [-, "abd"]]] 
 
 **/
 
@@ -44,11 +44,21 @@ make_mind_reading_tree4(Options0,Options3) :-
 	string_to_list1(Options1,1,_,[],Options2),
 	maplist(append,[Options2],[Options2a]),
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
+	make_mind_reading_tree4_a1(Options2a,Options3).
+
+make_mind_reading_tree4_a1(Options2a,Options3) :-
+	make_mind_reading_tree4_a(Options2a,Options3a),
+	make_mind_reading_tree4_a(Options3a,Options3b),
+	(Options3a=Options3b->Options3=Options3a;
+	make_mind_reading_tree4_a1(Options3b,Options3)).
+
+make_mind_reading_tree4_a(Options2a,Options3) :-
 	merge_lists_a([1],Options2a,%%Options2a,
 	[],Options3a),
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
 	trace,
 	sort(Options3a,Options3c),
+	trace,
 %writeln1(remove_chains_of_one_children1(1,Options3c,[],Options3b)),
 	remove_chains_of_one_children1(1,Options3c,[],Options3b),
 	sort(Options3b,Options3),!.
@@ -86,12 +96,13 @@ merge_lists_a([[-,A]],Options0,Options1,Options2) :-
 	append(Options1,[[N,A1,[-,A]]],Options2),!.
 %%writeln1(merge_lists_a([-,_],_,Options,Options)),!.
 merge_lists_a(N1,Options1,Options2,Options3) :-
+	%trace,
 	N1=[M1|Ms],
 	% If all As lead to the same letter then merge them
 	findall(A,(member([M1,A,_N2],Options1)),A1),
 	sort(A1,A11),
 	% next n1
-	merge_lists_a1(M1,A11,Options1,Options2,Options31,_,N21),
+	merge_lists_a1(M1,A11,Options1,Options2,Options31,[],N21),
 	append(Ms,N21,M21),
 	sort(M21,M2),
 	merge_lists_a(M2,Options31,Options31,Options32),
@@ -144,7 +155,8 @@ merge_lists_a3(A6,Options1,Options2,Options3) :-
 	merge_lists_a4(N2,A8,Options1a,Options2a,Options3).
 
 
-merge_lists_a4(_N2,[],_Options1,Options,Options) :- !.
+merge_lists_a4(_N2,[],Options1,Options2,Options3) :- 
+	append(Options1,Options2,Options3),!.
 merge_lists_a4(N2,A8,Options1,Options2,Options3) :-
 %trace,
 	A8=[[N1,A,N3]|A9],
@@ -267,6 +279,15 @@ flatten, sort at end
 
 debug each pred
 
+fore and post cut in shortening (no middle cut)
+- if middle cut (where abd acd->ad ad), find minimum combos of intermediate letters between forks with no conflicting (not the same items in the same order/same place)
+	- letter for letter x
+	- a single new level x
+	- cut only if necessary (leave alone) x
+	- a single new letter v
+	
+	continually merge and shorten until returns the same
+	
 **/
 
 same_parents([N1,_A1,_N2],[N4,_A2,_N3],Options61) :-
@@ -401,8 +422,10 @@ bc
 remove_chains_of_one_children1([-,_],Options1,Options2,Options3) :-
 %%trace,
 	append(Options1,Options2,Options3),!.
-remove_chains_of_one_children1(N0,Options1,Options,Options) :-
-	not(member([N0,_A,_N1],Options1)).
+remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
+	not(member([N0,_A,_N1],Options1)),
+	append(Options1,Options2,Options3),!.
+
 
 /**
 remove_chains_of_one_children0(N3) :-
@@ -482,9 +505,11 @@ remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 	%%append(Options4,[[N0,A,N3]],Options4a),
 	%trace,
 	member([_N01,A2,N3],Options1),
+	%trace,
 	[[N0,A2,N3]]=Options4a,
+	delete(Options6,[_N0a1,A2,N3],Options6a),
 	append(Options2,Options4a,Options5),
-	remove_chains_of_one_children1(N1,Options6,Options5,Options3).
+	remove_chains_of_one_children1(N1,Options6a,Options5,Options3).
 
 %remove_chains_of_one_children2([-,A],[-,A],Options1,Options2,Options3) :-
 %	append(Options1,Options2,Options3),!.
