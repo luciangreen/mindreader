@@ -53,14 +53,15 @@ make_mind_reading_tree4_a1(Options2a,Options3) :-
 	make_mind_reading_tree4_a1(Options3b,Options3)).
 
 make_mind_reading_tree4_a(Options2a,Options3) :-
-	merge_lists_a([1],Options2a,%%Options2a,
-	[],Options3a),
+	%trace,
+	merge_lists_a([1],Options2a,[],%%Options2a,
+	Options3a),
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
-	trace,
+	%trace,
 	sort(Options3a,Options3c),
-	trace,
-%writeln1(remove_chains_of_one_children1(1,Options3c,[],Options3b)),
+	%trace,
 	remove_chains_of_one_children1(1,Options3c,[],Options3b),
+	writeln1(remove_chains_of_one_children1(1,Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
 	
 string_to_list1([],N,N,Options,Options) :- !.
@@ -91,25 +92,30 @@ string_to_list2(A,B1,N1,N2,B,C) :-
 	string_to_list2(E,B1,N3,N2,F,C).
 
 
-merge_lists_a([[-,A]],Options0,Options1,Options2) :- 
-	member([N,A1,[-,A]],Options0),
-	append(Options1,[[N,A1,[-,A]]],Options2),!.
+merge_lists_a([],Options1,Options2,Options3) :- 
+	append(Options1,Options2,Options3),!. %*?
+%merge_lists_a([[-,A]],Options0,Options1,Options2) :- 
+%	member([N,A1,[-,A]],Options0),
+%	append(Options1,[[N,A1,[-,A]]],Options2),!.
 %%writeln1(merge_lists_a([-,_],_,Options,Options)),!.
-merge_lists_a(N1,Options1,Options2,Options3) :-
+merge_lists_a(N1,Options1,Options2,
+Options3) :-
 	%trace,
 	N1=[M1|Ms],
 	% If all As lead to the same letter then merge them
 	findall(A,(member([M1,A,_N2],Options1)),A1),
 	sort(A1,A11),
 	% next n1
-	merge_lists_a1(M1,A11,Options1,Options2,Options31,[],N21),
+	merge_lists_a1(M1,A11,Options1,[],Options31,[],N21),
+	append(Options2,Options31,Options32),
 	append(Ms,N21,M21),
 	sort(M21,M2),
-	merge_lists_a(M2,Options31,Options31,Options32),
-	sort(Options32,Options3).
+	merge_lists_a(M2,Options32,[],Options3).
+	%sort(Options32,Options3).
 
 
-merge_lists_a1(_,[],_Options1,Options,Options,N,N) :- !. %*?
+merge_lists_a1(_,[],Options1,Options2,Options3,N,N) :- 
+	append(Options1,Options2,Options3),!. %*?
 merge_lists_a1(N1,A1,Options1,Options2,Options3,_,NA7) :-
 	A1=[A2|A3],
 	findall([N2,A5,N3],(member([N1,A2,N2],Options1),
@@ -124,17 +130,18 @@ merge_lists_a1(N1,A1,Options1,Options2,Options3,_,NA7) :-
 	
 	%% merge N1 A2 N*, change N* in other states
 	%trace,
-	merge_lists_a3(A6,Options1,Options2,Options4));
+	merge_lists_a3(A6,Options1,Options4),
+	findall(N2,(member([N1,A2,N2],Options4)),NA6));
 	%(trace,
 	(%trace,
-	merge_lists_a3(A6,Options1,Options2,Options4))),
-
+	%subtract(A6,
+	merge_lists_a3(A6,Options1,Options4),NA6=[])),
+	append(Options2,Options4,Options5),
 	%Options2=Options4),
 	%trace,
 	%delete(Options1,[N1,A2,N2],Options1a),
-	findall(N2,(member([N1,A2,N2],Options4)),NA6),
-	merge_lists_a1(N1,A3,Options4,Options4,Options31,NA6,NA7),
-	sort(Options31,Options3).
+	merge_lists_a1(N1,A3,Options5,[],Options3,NA6,NA7).
+	%%sort(Options31,Options3).
  %*?o4
 %end state
 
@@ -146,32 +153,38 @@ merge_lists_a22(A,A5) :-
 	A5=[[_N1,A,_N2]|A6],
 	merge_lists_a22(A,A6).
 
-merge_lists_a3(A6,Options1,Options2,Options3) :-
+merge_lists_a3(A6,Options1,%Options2,
+Options3) :-
 	A6=[[N1,A,N2]|A8],
 	delete(Options1,[N1,_,_],Options1a),
 	%%(member([N1,A,N2],Options2)->(trace,Options2=Options2a,A9=A6);
-	(append(Options2,[[N1,A,N2]],Options2a)%%,A9=A8
+	(append(Options1a,[[N1,A,N2]],Options1aa)%%,A9=A8
 	),%),
-	merge_lists_a4(N2,A8,Options1a,Options2a,Options3).
+	merge_lists_a4(N2,A8,Options1aa,[],%Options2a,
+	Options3).
 
 
-merge_lists_a4(_N2,[],Options1,Options2,Options3) :- 
+merge_lists_a4(_N2,[],Options1,Options2,Options3
+) :- 
 	append(Options1,Options2,Options3),!.
 merge_lists_a4(N2,A8,Options1,Options2,Options3) :-
 %trace,
 	A8=[[N1,A,N3]|A9],
-	delete(Options2,[N1,A,N3],Options2aa),
+	delete(Options1,[N1,A,N3],Options2aa),
 	%%append(Options2,[[N1,A,N2]],Options2a),
 	%trace,
-	merge_lists_a5(N2,N3,Options1,Options2aa,Options4,[],Options5),
+	merge_lists_a5(N2,N3,Options2aa,[],Options4,[],Options5),
 	% remove Options4=[n from o5
 	findall(N4,(member([N4,_,_],Options4)),N41),
 	subtract1(Options5,N41,[],Options45),
+	append(Options2,Options45,Options245),
 	%union(Options4,Options5,Options45),
 	%writeln1(Options45),
 %writeln1(	merge_lists_a5(N2,N3,Options1,Options2,Options4,[],Options5)),
-	merge_lists_a4(N2,A9,Options45,Options4,Options31),
-	append(Options45,Options31,Options3).
+	merge_lists_a4(N2,A9,Options245,[],%***Options4,
+	Options31),
+	append(Options31,Options4,Options3).
+	%append(Options45,Options31,Options3).
 
 % point second in pair to changed first state
 merge_lists_a5(_N2,_N3,[],Options1,Options1,Options2,Options2) :- !.
