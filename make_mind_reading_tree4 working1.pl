@@ -109,7 +109,7 @@ merge_lists_a(N1,Options1,Options2,Options3) :-
 	sort(Options32,Options3).
 
 
-merge_lists_a1(_,[],_Options1,Options,Options,N,N) :- !.
+merge_lists_a1(_,[],_Options1,Options,Options,N,N) :- !. %*?
 merge_lists_a1(N1,A1,Options1,Options2,Options3,_,NA7) :-
 	A1=[A2|A3],
 	findall([N2,A5,N3],(member([N1,A2,N2],Options1),
