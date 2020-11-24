@@ -1,32 +1,29 @@
 /**
+WORKING
 
-[debug]  ?- make_mind_reading_tree4(["ac","bc"],A).                             
-A = [[1, "a", [-, "ac"]], [1, "b", [-, "bc"]]].
+make_mind_reading_tree4(["abc","abd"],
+[[1, "b", 3], [3, "c", [-, "abc"]], [3, "d", [-, "abd"]]]).
 
+make_mind_reading_tree4(["aaa","aab","acc"],
+[[1,"a",2],[2,"a",3],[2,"c",[-,"acc"]],[3,"a",[-,"aaa"]],[3,"b",[-,"aab"]]]).
 
-[debug]  ?- make_mind_reading_tree4(["ca","cb"],A).                             
-A = [[1, "a", [-, "ca"]], [1, "b", [-, "cb"]]].
-
-
-[debug]  ?- make_mind_reading_tree4(["cca","ccb"],A).
-A = [[1, "a", [-, "cca"]], [1, "b", [-, "ccb"]]].
-
-
-[debug]  ?- make_mind_reading_tree4(["acc","bcc"],A).
-A = [[1, "a", [-, "acc"]], [1, "b", [-, "bcc"]]].
+make_mind_reading_tree4(["cca","ccb"],
+[[1, "c", 3], [3, "a", [-, "cca"]], [3, "b", [-, "ccb"]]]).
 
 
 
-[debug]  ?- make_mind_reading_tree4(["aaa","aab","acc"],A).
-A = [[1, "a", [-, "aaa"]], [1, "b", [-, "aab"]], [1, "c", [-, "acc"]]].
+make_mind_reading_tree4(["acc","bcc"],
+[[1, "a", [-, "acc"]], [1, "b", [-, "bcc"]]]).
 
+make_mind_reading_tree4(["ac","bc"],
+[[1, "a", [-, "ac"]], [1, "b", [-, "bc"]]]).
 
-[debug]  ?- make_mind_reading_tree4(["cd","ab"],A).                             
-A = [[1, "b", [-, "ab"]], [1, "d", [-, "cd"]]].
+make_mind_reading_tree4(["aqa","awx","awy"],
+[[1,"a",2],[2,"q",[-,"aqa"]],[2,"w",9],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
+).
 
-
-[debug]  ?- merge_lists_a([1],[[1,"a",2],[2,"b",3],[3,"c",[-,"abc"]],[1,"a",4],[4,"b",5],[5,"d",[-,"abd"]]],[],A),writeln1(A).                                  
-A = [[1, "a", 2], [2, "b", 3], [3, "c", [-, "abc"]], [3, "d", [-, "abd"]]] 
+make_mind_reading_tree4(["ca","cb"],
+[[1, "c", 2], [2, "a", [-, "ca"]], [2, "b", [-, "cb"]]]). 
 
 **/
 
