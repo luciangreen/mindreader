@@ -56,12 +56,12 @@ make_mind_reading_tree4_a(Options2a,Options3) :-
 	%trace,
 	merge_lists_a([1],Options2a,[],%%Options2a,
 	Options3a),
-%writeln1(merge_lists1a(Options2,Options2a,Options3a)),
-	%trace,
+writeln1(merge_lists_a([1],Options2a,[],%%Options2a,
+	Options3a)),
 	sort(Options3a,Options3c),
-	trace,
-	remove_chains_of_one_children1(1,Options3c,[],Options3b),
-	writeln1(remove_chains_of_one_children1(1,Options3c,[],Options3b)),
+	%trace,
+	remove_chains_of_one_child_a([1],Options3c,[],Options3b),
+	writeln1(remove_chains_of_one_child_a([1],Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
 	
 string_to_list1([],N,N,Options,Options) :- !.
@@ -110,13 +110,17 @@ Options3) :-
 	append(Options2,Options31,Options32),
 	append(Ms,N21,M21),
 	sort(M21,M2),
+	%M21=M2,
 	merge_lists_a(M2,Options32,[],Options3).
 	%sort(Options32,Options3).
 
 
 merge_lists_a1(_,[],Options1,Options2,Options3,N,N) :- 
 	append(Options1,Options2,Options3),!. %*?
-merge_lists_a1(N1,A1,Options1,Options2,Options3,_,NA7) :-
+merge_lists_a1(N1,A1,Options1,Options2,Options3,NA61,NA7) :-
+	%(N1=2->trace;true),
+	%writeln1(merge_lists_a1(N1,A1,Options1,Options2,Options3,NA61,NA7)),
+	%notrace,
 	A1=[A2|A3],
 	findall([N2,A5,N3],(member([N1,A2,N2],Options1),
 	member([N2,A5,N3],Options1)),A4),
@@ -135,12 +139,16 @@ merge_lists_a1(N1,A1,Options1,Options2,Options3,_,NA7) :-
 	%(trace,
 	(%trace,
 	%subtract(A6,
-	merge_lists_a3(A6,Options1,Options4),NA6=[])),
+	merge_lists_a3(A6,Options1,Options4),
+	%NA6=[]
+	findall(N2,(member([N1,A2,N2],Options4)),NA6) %**
+	)),
 	append(Options2,Options4,Options5),
+	append(NA61,NA6,NA62),
 	%Options2=Options4),
 	%trace,
 	%delete(Options1,[N1,A2,N2],Options1a),
-	merge_lists_a1(N1,A3,Options5,[],Options3,NA6,NA7).
+	merge_lists_a1(N1,A3,Options5,[],Options3,NA62,NA7).
 	%%sort(Options31,Options3).
  %*?o4
 %end state
@@ -169,6 +177,7 @@ merge_lists_a4(_N2,[],Options1,Options2,Options3
 	append(Options1,Options2,Options3),!.
 merge_lists_a4(N2,A8,Options1,Options2,Options3) :-
 %trace,
+%writeln1(merge_lists_a4(N2,A8,Options1,Options2,Options3)),
 	A8=[[N1,A,N3]|A9],
 	delete(Options1,[N1,A,N3],Options2aa),
 	%%append(Options2,[[N1,A,N2]],Options2a),
@@ -183,7 +192,9 @@ merge_lists_a4(N2,A8,Options1,Options2,Options3) :-
 %writeln1(	merge_lists_a5(N2,N3,Options1,Options2,Options4,[],Options5)),
 	merge_lists_a4(N2,A9,Options245,[],%***Options4,
 	Options31),
+	%(N2=2->trace;true),
 	append(Options31,Options4,Options3).
+	%(Options4=[[2, "a", 3], [2, "a", 6]]->true;notrace).
 	%append(Options45,Options31,Options3).
 
 % point second in pair to changed first state
@@ -303,12 +314,13 @@ fore and post cut in shortening (no middle cut)
 	
 **/
 
+/**
 same_parents([N1,_A1,_N2],[N4,_A2,_N3],Options61) :-
 	findall([B1,B2,N1],member([B1,B2,N1],Options61),C1),
 	findall([B3,B4,N4],member([B3,B4,N4],Options61),C2),
 	subtract(C2,C1,[]).
 	%% and vv?
-
+**/
 /**
 merge_lists2([N1,A1,_N2],Options2,Options61,Options9) :-
 	Options2=[N4,A2,N3],
@@ -331,7 +343,7 @@ merge_lists2([N1,A1,_N2],Options2,Options61,Options9) :-
 	);
 	Options61=Options9).
 **/
-	
+	/**
 merge_lists2([N1,A1,_N2],Options2,Options61,Options9) :-
 	Options2=[N4,A2,N3],
 	(A1=A2->
@@ -351,8 +363,9 @@ merge_lists2([N1,A1,_N2],Options2,Options61,Options9) :-
 	Options81=Options7
 	)),Options9));
 	Options61=Options9).	
-	
+	**/
 %%no_more_than_one_parent_of_each_node_before1([1,_A,_N3],_Options61) :- !.
+/**
 no_more_than_one_parent_of_each_node_before1([N4,_A,_N3],Options61) :-
 	%%member([_N2,_A1,N4],Options61),
 	%%trace,
@@ -412,6 +425,7 @@ merge_back_until_forward_fork(N0,N4,_N1,Options8,Options9,Options10) :-
 	merge_back_until_forward_fork(N0,N41,N4,Options7,Options9,Options10));
 	%%Options9=Options10).
 	append(Options8,Options9,Options10)).
+	**/
 %% put [-,*] in
 /**
 merge_back_until_forward_fork1(_,[],Options7,Options7,N41,N41) :- !.
@@ -431,14 +445,99 @@ bc
 
 **/
 
+remove_chains_of_one_child_a([],Options1,Options2,Options3) :- 
+	append(Options1,Options2,Options3),!. %*?
+remove_chains_of_one_child_a(N1,Options0,Options1,Options2) :- 
+	N1=[[-,A1]|Ms],
+	member([N,A1,[-,A]],Options0),
+	append(Options1,[[N,A1,[-,A]]],Options21),
+	remove_chains_of_one_child_a(Ms,Options21,[],Options2),!.
 
+remove_chains_of_one_child_a(N1,Options1,Options2,
+Options3) :-
+	N1=[M1|Ms],
+	findall(A,(member([M1,A,_N2],Options1)),A1),
+	sort(A1,A11),
+	length(A11,A11L),
+	(A11L>1->Switch=left;Switch=right),
+	remove_chains_of_one_child_a1(Switch,M1,A11,Options1,[],Options31,[],N21),
+	append(Options2,Options31,Options32),
+	append(Ms,N21,M21),
+	sort(M21,M2),
+	remove_chains_of_one_child_a(M2,Options32,[],Options3).
+
+remove_chains_of_one_child_a1(_,_,[],Options1,Options2,Options3,N,N) :- 
+	append(Options1,Options2,Options3),!. %*?
+remove_chains_of_one_child_a1(Switch,N1,A1,Options1,Options2,Options3,_,NA7) :-
+	A1=[A2|A3],
+	findall([N1,A2,N2],(member([N1,A2,N2],Options1)),A6),
+
+	remove_chains_of_one_child_a3(Switch,A6,Options1,[],Options4),
+	findall(N2,(member([N1,A2,N2],Options4)),NA6),
+	append(Options2,Options4,Options5),
+	remove_chains_of_one_child_a1(Switch,N1,A3,Options5,[],Options3,NA6,NA7).
+	
+	
+
+
+remove_chains_of_one_child_a3(_,[],Options1,Options2,Options3
+) :- 
+	append(Options1,Options2,Options3),!.
+remove_chains_of_one_child_a3(Switch,A8,Options1,Options2,Options3) :-
+%trace,
+	A8=[[N0,A,N1]|A9],
+	member([N0,A,N1],Options1), %% ** delete
+	delete(Options1,[N0,A,N1],Options6),
+	%trace,
+%%writeln1(	remove_chains_of_one_children2(N1,N3,Options1,[],_Options4)),
+	remove_chains_of_one_child_a4(N0,A,N3,Options1,[],Options41),
+	Options41=[_|Options42],
+	%writeln([options41,Options41]),
+	
+	subtract(Options6,Options42,Options6a),
+	% * if N0=n3 there are a and b etc.
+	% could add a state on to the start x
+	%%append(Options4,[[N0,A,N3]],Options4a),
+	%trace,
+	member([_N01,A2,N3],Options1),
+	%trace,
+	(Switch=left->[[N0,A,N3]]=Options4a;[[N0,A2,N3]]=Options4a),
+
+	%[[N0,A2,N3]]=Options4a,
+	%delete(Options6,[_N0a1,A2,N3],Options6a),
+	append(Options2,Options4a,Options5),
+	%remove_chains_of_one_children1(N1,Options6a,Options5,Options3).
+	
+		remove_chains_of_one_child_a3(Switch,A9,Options6a,Options5,Options3)
+		%,notrace
+		.
+	
+remove_chains_of_one_child_a4(N1,A,N3,Options1,Options2,Options3) :-
+%trace,
+	(N1=[-,_]->(N3=N1,Options2=Options3);
+	(member([N1,A,N2],Options1),member([N2,_,N22],Options1),member([N2,_,N23],Options1),not(N22=N23),N3=N2,append(Options2,[[N1,A,N2]],Options3))),!.
+remove_chains_of_one_child_a4(N1,A1,N3,Options1,Options2,Options3) :-
+	member([N1,A2,N2],Options1),
+	append(Options2,[[N1,A2,N2]],Options31),
+	remove_chains_of_one_child_a5(N2,A1,N3,Options1,Options31,Options3).
+
+remove_chains_of_one_child_a5(N1,_A1,N3,Options1,Options2,Options3) :-
+%trace,
+	(N1=[-,_]->(N3=N1,Options2=Options3);
+	(member([N1,A,N2],Options1),member([N2,_,N22],Options1),member([N2,_,N23],Options1),not(N22=N23),N3=N2,append(Options2,[[N1,A,N2]],Options3))),!.
+remove_chains_of_one_child_a5(N1,A1,N3,Options1,Options2,Options3) :-
+	member([N1,A2,N2],Options1),
+	append(Options2,[[N1,A2,N2]],Options31),
+	remove_chains_of_one_child_a5(N2,A1,N3,Options1,Options31,Options3).
+	
+	/**
 remove_chains_of_one_children1([-,_],Options1,Options2,Options3) :-
 %%trace,
 	append(Options1,Options2,Options3),!.
 remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 	not(member([N0,_A,_N1],Options1)),
 	append(Options1,Options2,Options3),!.
-
+**/
 
 /**
 remove_chains_of_one_children0(N3) :-
@@ -507,7 +606,7 @@ append(NN61,NN81,Options4a),
 	remove_chains_of_one_children1(N0,Options6,Options5,Options3).
 	
 **/
-
+/**
 remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 %trace,
 	member([N0,A,N1],Options1),
@@ -525,18 +624,20 @@ remove_chains_of_one_children1(N0,Options1,Options2,Options3) :-
 	delete(Options6,[_N0a1,A2,N3],Options6a),
 	append(Options2,Options4a,Options5),
 	remove_chains_of_one_children1(N1,Options6a,Options5,Options3).
-
+**/
 %remove_chains_of_one_children2([-,A],[-,A],Options1,Options2,Options3) :-
 %	append(Options1,Options2,Options3),!.
 
 %remove_chains_of_one_children2(N1,N1,Options1,_Options2,_Options3) :-
 	%(member([N1,_,N22],Options1),member([N1,_,N23],Options1),not(N22=N23)),!.
+	/**
 remove_chains_of_one_children2(N1,N3,Options1,_Options2,_Options3) :-
 	(N1=[-,_]->N3=N1;
 	(member([N1,_A,N2],Options1),member([N2,_,N22],Options1),member([N2,_,N23],Options1),not(N22=N23),N3=N2)),!.
 remove_chains_of_one_children2(N1,N3,Options1,_Options2,_Options3) :-
 	member([N1,_,N2],Options1),
 	remove_chains_of_one_children2(N2,N3,Options1,_Options21,_Options31).
+	**/
 /**
 remove_chains_of_one_children2(N1,N3,Options1,Options2,Options3) :-
 	findall([N1,A,N2],member([N1,A,N2],Options1),Options4),
