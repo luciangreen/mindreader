@@ -34,7 +34,7 @@ Please follow instructions in <a href="https://github.com/luciangreen/mindreader
 
 See instructions on running below
 
- **Important:** Eliminate interference once you get the algorithm working with 4*4000 breasonings for it working: `['../Text-to-Breasonings/texttobr2qb.pl']`.  `texttobr2(64)`. and eliminating any instances of interference with 250 breasonings: `texttobr2(2).` (2) for dotting on and doing it.
+**Important:** Eliminate interference once you get the algorithm working with 4*4000 breasonings for it working: `['../Text-to-Breasonings/texttobr2qb.pl']`.  `texttobr2(64)`. and eliminating any instances of interference with 250 breasonings: `texttobr2(2).` (2) for dotting on and doing it.
 
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
@@ -94,6 +94,40 @@ sectest(1).
 Replace 1 with the number of times to repeat algorithm.
 
 * If necessary, repeat the "arem" mantra all the time while the mind reading computation is running to ensure the best results.
+
+# Mind Reading Tree
+
+* The Mind Reading tree algorithm converts a list of strings into a decision tree and removes nodes with a single child.
+```
+['make_mind_reading_tree4 working1.pl'].
+
+make_mind_reading_tree4(["aqa","awx","awy"],Tree),writeln1(Tree).
+
+Tree = [[1,"a",2],[2,"q",[-,"aqa"]],[2,"w",9],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
+```
+
+* This is accomplished by converting a list of strings into a decision tree:
+```
+string_to_list1(["aqa","awx","awy"],1,_,[],Options2),
+maplist(append,[Options2],[Tree]),writeln1(Tree).
+
+Tree = [[1,"a",2],[2,"q",3],[3,"a",[-,"aqa"]],[1,"a",5],[5,"w",6],[6,"x",[-,"awx"]],[1,"a",8],[8,"w",9],[9,"y",[-,"awy"]]]
+```
+
+* Merging the branches of the decision tree:
+```  merge_lists_a([1],[[1,"a",2],[2,"q",3],[3,"a",[-,"aqa"]],[1,"a",5],[5,"w",6],[6,"x",[-,"awx"]],[1,"a",8],[8,"w",9],[9,"y",[-,"awy"]]],[],MergedTree),writeln1(MergedTree).
+
+MergedTree = [[1,"a",2],[2,"q",3],[2,"w",9],[3,"a",[-,"aqa"]],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
+```
+
+* And removing nodes with a single child:
+```
+remove_chains_of_one_child_a([1],[[1,"a",2],[2,"q",3],[2,"w",9],[3,"a",[-,"aqa"]],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]],[],ShortTree),writeln1(ShortTree).
+
+ShortTree = [[1,"a",2],[2,"q",[-,"aqa"]],[2,"w",9],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
+```
+
+* (State 2 is followed by 2 children, so is kept.)
 
 # Versioning
 
