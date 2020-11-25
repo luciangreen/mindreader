@@ -1,6 +1,6 @@
-**Currently Not Working**
+Notice
 
-Mindreader is currently not working even if 10 algorithms are inductively written for each mind read person per day.  It does not necessarily require the computer to simulate meditation.  Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.
+Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.
 
 # Mindreader
 
