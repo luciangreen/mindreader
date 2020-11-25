@@ -29,14 +29,9 @@ make_mind_reading_tree4(["ca","cb"],
 
 :- include('../listprologinterpreter/la_strings.pl').
 
-:- dynamic c/1.
-
 %%% make_mind_reading_tree4(["abc","ade"],A).
 
 make_mind_reading_tree4(Options0,Options3) :-
-  	retractall(c(_)),
- 	assertz(c(1)),
-
 	sort(Options0,Options1),
 	string_to_list1(Options1,1,_,[],Options2),
 	maplist(append,[Options2],[Options2a]),
