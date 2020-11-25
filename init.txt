@@ -24,9 +24,8 @@ F="../mindreader/file.txt",time((N is 100*4, M is 4000,  texttobr2(N,F,u,M,false
 
 %% Once per algorithm
 
-%% Load 250 breasonings texttobr2qb.
+%% Load 250 breasonings texttobr2qb - already done
 
-[../Text-to-Breasonings/texttobr2qb].
 
 texttobr2(3). %% indicates training radio button, radio button to graciously give and graciously give 250 breasonings for training
 texttobr2(3). %% indicates training on our side radio button, radio button to graciously give and graciously give 250 breasonings for training on our side

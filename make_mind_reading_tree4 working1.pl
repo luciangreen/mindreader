@@ -55,12 +55,12 @@ make_mind_reading_tree4_a(Options2a,Options3) :-
 	%trace,
 	merge_lists_a([1],Options2a,[],%%Options2a,
 	Options3a),
-writeln1(merge_lists_a([1],Options2a,[],%%Options2a,
-	Options3a)),
+%writeln1(merge_lists_a([1],Options2a,[],%%Options2a,
+%	Options3a)),
 	sort(Options3a,Options3c),
 	%trace,
 	remove_chains_of_one_child_a([1],Options3c,[],Options3b),
-	writeln1(remove_chains_of_one_child_a([1],Options3c,[],Options3b)),
+	%writeln1(remove_chains_of_one_child_a([1],Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
 	
 string_to_list1([],N,N,Options,Options) :- !.
