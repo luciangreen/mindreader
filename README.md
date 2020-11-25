@@ -128,7 +128,7 @@ remove_chains_of_one_child_a([1],[[1,"a",2],[2,"q",3],[2,"w",9],[3,"a",[-,"aqa"]
 ShortTree = [[1,"a",2],[2,"q",[-,"aqa"]],[2,"w",9],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
 ```
 
-* (State 2 is followed by 2 children, so is kept.)
+* (Transition [2,"w",9] is followed by 2 children, so is kept.)
 
 # Versioning
 
