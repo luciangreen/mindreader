@@ -115,7 +115,8 @@ Tree = [[1,"a",2],[2,"q",3],[3,"a",[-,"aqa"]],[1,"a",5],[5,"w",6],[6,"x",[-,"awx
 ```
 
 * Merging the branches of the decision tree:
-``` merge_lists_a([1],[[1,"a",2],[2,"q",3],[3,"a",[-,"aqa"]],[1,"a",5],[5,"w",6],[6,"x",[-,"awx"]],[1,"a",8],[8,"w",9],[9,"y",[-,"awy"]]],[],MergedTree),writeln1(MergedTree).
+```
+merge_lists_a([1],[[1,"a",2],[2,"q",3],[3,"a",[-,"aqa"]],[1,"a",5],[5,"w",6],[6,"x",[-,"awx"]],[1,"a",8],[8,"w",9],[9,"y",[-,"awy"]]],[],MergedTree),writeln1(MergedTree).
 
 MergedTree = [[1,"a",2],[2,"q",3],[2,"w",9],[3,"a",[-,"aqa"]],[9,"x",[-,"awx"]],[9,"y",[-,"awy"]]]
 ```
