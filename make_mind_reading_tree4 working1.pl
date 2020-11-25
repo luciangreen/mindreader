@@ -226,7 +226,18 @@ subtract1(Options5,N41,Options451,Options45) :-
 	append(Options451,[[N42,A,B]],Options452),
 	subtract1(Options51,N41,Options452,Options45).
 
-	
+subtract2([],_N41,Options45,Options45) :- !.
+subtract2(Options5,N41,Options451,Options45) :-
+	Options5=[[_,N42,_]|Options51],
+	member(N42,N41),
+	subtract2(Options51,N41,Options451,Options45).
+subtract2(Options5,N41,Options451,Options45) :-
+	Options5=[[N42,A,B]|Options51],
+	not(member(A,N41)),
+	append(Options451,[[N42,A,B]],Options452),
+	subtract2(Options51,N41,Options452,Options45).
+
+
 
 	
 /**
