@@ -41,13 +41,15 @@ make_mind_reading_tree4(Options0,Options3) :-
 	string_to_list1(Options1,1,_,[],Options2),
 	maplist(append,[Options2],[Options2a]),
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
-	make_mind_reading_tree4_a1(Options2a,Options3).
+	make_mind_reading_tree4_a(Options2a,Options3).
 
+/**
 make_mind_reading_tree4_a1(Options2a,Options3) :-
 	make_mind_reading_tree4_a(Options2a,Options3a),
 	make_mind_reading_tree4_a(Options3a,Options3b),
 	(Options3a=Options3b->Options3=Options3a;
 	make_mind_reading_tree4_a1(Options3b,Options3)).
+**/
 
 make_mind_reading_tree4_a(Options2a,Options3) :-
 	%trace,
