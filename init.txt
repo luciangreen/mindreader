@@ -8,14 +8,16 @@
 %% Once per day
 
 %% Load texttobr2, texttobr
-[../Text-to-Breasonings/texttobr2].
-[../Text-to-Breasonings/texttobr].
-[../Text-to-Breasonings/texttobr2qb].
+
+%% In shell
+cd Text-to-Breasonings
+swipl
+['text_to_breasonings.pl'].
 
 %%	texttobr2(2). %% Head of State to enable mind reading
 
 %% 50 done up As for training, 50 done up As on my side
-time((N is 100*4, M is 4000,  texttobr2(N,u,u,M),texttobr(N,u,u,M))).
+F="../mindreader/file.txt",time((N is 100*4, M is 4000,  texttobr2(N,F,u,M,false,false,false,false,false,false),texttobr(N,F,u,M))).
 
 %% Important: please switch off algorithm after each use with Head of State with
 %%	texttobr2(2).
