@@ -30,7 +30,7 @@ Download Lucian Green's List Prolog Interpreter Repository and this repository.
 
 - Follow instructions in https://github.com/luciangreen/listprologinterpreter/blob/master/Instructions_for_Using_texttobr(2).pl.txt when using texttobr, texttobr2 or mind reader to avoid medical problems.
 
-Please follow instructions in init.txt to initialise any new mind-reading algorithms.
+Please follow instructions in <a href="https://github.com/luciangreen/mindreader/blob/master/init.txt">init.txt</a> to initialise any new mind-reading algorithms.
 
 See instructions on running below
 
