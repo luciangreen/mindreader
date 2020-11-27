@@ -96,6 +96,7 @@ merge_lists_a(N1,Options1,Options2,
 Options3) :-
 	%trace,
 	N1=[M1|Ms],
+%writeln1([n1,N1]),
 	% If all As lead to the same letter then merge them
 	findall(A,(member([M1,A,_N2],Options1)),A1),
 	sort(A1,A11),
