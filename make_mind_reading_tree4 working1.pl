@@ -513,7 +513,9 @@ remove_chains_of_one_child_a3(Switch,A8,Options1,Options2,Options3) :-
 	append(Options2,Options4a,Options5),
 	%remove_chains_of_one_children1(N1,Options6a,Options5,Options3).
 	
-		remove_chains_of_one_child_a3(Switch,A9,Options6a,Options5,Options3)
+		remove_chains_of_one_child_a3(Switch,A9,Options6a,Options5,Options31),
+		(N3=[-,_]->Options31=Options3;
+		remove_chains_of_one_child_a([N3],Options31,[],Options3))
 		%,notrace
 		.
 	
