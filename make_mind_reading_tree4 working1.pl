@@ -54,6 +54,7 @@ make_mind_reading_tree4(["aaaccc","bbbccc"],
 
 make_mind_reading_tree4(Options0,Options3) :-
 	sort(Options0,Options1),
+	abort_if_empty_string(Options1),
 	string_to_list1(Options1,1,_,[],Options2),
 	maplist(append,[Options2],[Options2a]),
 %writeln1(merge_lists1a(Options2,Options2a,Options3a)),
@@ -260,7 +261,10 @@ subtract2(Options5,N41,Options451,Options45) :-
 abort_if_gone_past_error(M1,Options1) :-
 	%trace,
 	((member([M1,A,N22],Options1),member([M1,A,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A,N22],N221),term_to_atom([M1,A,N23],N231),concat_list(["Error: Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
-	
+
+abort_if_empty_string(Options1) :-
+	(member("",Options1)->(writeln1("Error: Cannot mind read \"\"."),abort);true),!.
+
 /**
 
 
