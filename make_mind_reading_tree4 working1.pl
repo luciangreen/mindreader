@@ -96,6 +96,7 @@ merge_lists_a(N1,Options1,Options2,
 Options3) :-
 	%trace,
 	N1=[M1|Ms],
+	abort_if_gone_past_error(M1,Options1),
 %writeln1([n1,N1]),
 	% If all As lead to the same letter then merge them
 	findall(A,(member([M1,A,_N2],Options1)),A1),
@@ -235,8 +236,9 @@ subtract2(Options5,N41,Options451,Options45) :-
 	append(Options451,[[N42,A,B]],Options452),
 	subtract2(Options51,N41,Options452,Options45).
 
-
-
+abort_if_gone_past_error(M1,Options1) :-
+	%trace,
+	((member([M1,A1,N22],Options1),member([M1,A2,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A1,N22],N221),term_to_atom([M1,A2,N23],N231),concat_list(["Error:  Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
 	
 /**
 
