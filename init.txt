@@ -105,7 +105,7 @@ texttobr2(3). %% * 26
 N is 3*26,texttobr2(N).
 N is 3*26,texttobr2(N).
 
-%% also breason out and dot on (parts of, i.e. squares and rectangular prisms in) characters before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
+%% also breason out and dot on (parts of, i.e. squares and rectangles in) characters before line above and breason out and dot on when recognising and saying object (with all objects having different breasonings)
 
 %% to recognise, think of stream of consciousness breasonings, the appearance of an object, words appearing and tricky appearances that mean something else
 
