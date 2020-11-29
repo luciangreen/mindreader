@@ -25,11 +25,32 @@ make_mind_reading_tree4(["aqa","awx","awy"],
 make_mind_reading_tree4(["ca","cb"],
 [[1, "c", 2], [2, "a", [-, "ca"]], [2, "b", [-, "cb"]]]). 
 
+make_mind_reading_tree4(["abc","ade"],
+[[1, "a", 2], [2, "b", [-, "abc"]], [2, "d", [-, "ade"]]]).
+
+
+make_mind_reading_tree4(["cccbbb"],
+[[1, "b", [-, "cccbbb"]]]).
+
+make_mind_reading_tree4(["cccbbb","fsfs"],
+[[1, "c", [-, "cccbbb"]], [1, "f", [-, "fsfs"]]]).
+
+make_mind_reading_tree4(["abcde"],
+[[1, "e", [-, "abcde"]]]).
+
+make_mind_reading_tree4(["abcde","afgde"],
+[[1, "a", 2], [2, "b", [-, "abcde"]], [2, "f", [-, "afgde"]]]).
+
+
+make_mind_reading_tree4(["aaaabbbbcccc","aaaaddddeeee"],
+[[1,"a",5],[5,"b",[-,"aaaabbbbcccc"]],[5,"d",[-,"aaaaddddeeee"]]]).
+
+make_mind_reading_tree4(["aaaccc","bbbccc"],
+[[1, "a", [-, "aaaccc"]], [1, "b", [-, "bbbccc"]]]).
+
 **/
 
 :- include('../listprologinterpreter/la_strings.pl').
-
-%%% make_mind_reading_tree4(["abc","ade"],A).
 
 make_mind_reading_tree4(Options0,Options3) :-
 	sort(Options0,Options1),
@@ -238,7 +259,7 @@ subtract2(Options5,N41,Options451,Options45) :-
 
 abort_if_gone_past_error(M1,Options1) :-
 	%trace,
-	((member([M1,A1,N22],Options1),member([M1,A2,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A1,N22],N221),term_to_atom([M1,A2,N23],N231),concat_list(["Error:  Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
+	((member([M1,A,N22],Options1),member([M1,A,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A,N22],N221),term_to_atom([M1,A,N23],N231),concat_list(["Error:  Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
 	
 /**
 
