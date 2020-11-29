@@ -259,7 +259,7 @@ subtract2(Options5,N41,Options451,Options45) :-
 
 abort_if_gone_past_error(M1,Options1) :-
 	%trace,
-	((member([M1,A,N22],Options1),member([M1,A,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A,N22],N221),term_to_atom([M1,A,N23],N231),concat_list(["Error:  Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
+	((member([M1,A,N22],Options1),member([M1,A,N23],Options1),not(N22=N23),not(N22=[-,_]),N23=[-,_])->(term_to_atom([M1,A,N22],N221),term_to_atom([M1,A,N23],N231),concat_list(["Error: Conflicting branches ",N221," and ",N231,"."],W),writeln1(W),abort);true),!.
 	
 /**
 
