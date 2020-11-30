@@ -80,6 +80,35 @@ make_mind_reading_tree4_a(Options2a,Options3) :-
 	%writeln1(remove_chains_of_one_child_a([1],Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
 	
+minimise_strings1(List0,A,Map) :-
+	sort(List0,List1),
+	findall(L,(member(Item,List1),string_length(Item,L)),Ls1),
+	sort(Ls1,Ls2),
+	reverse(Ls2,Ls3),
+	Ls3=[Maximum_length|_],
+	numbers(Maximum_length,1,[],Numbers),
+	minimise_strings2(Numbers,List1,A,Map).
+
+minimise_strings2([],_List1,A,A,Map,Map) :- !.
+minimise_strings2(Numbers1,List1,A1,Map1) :-
+	Numbers1=[Number|Numbers2],
+	findall(Item3a,(member(Item1,List1),string_concat(Item2,_,Item1),
+	string_length(Item2,Number),string_concat(Item2," 01",Item3a)),Item3),
+	sort(Item3,Item31),
+%trace,
+findall([Item3a,Item1],(member(Item1,List1),string_concat(Item2,_,Item1),
+	string_length(Item2,Number),string_concat(Item2," 01",Item3a)),Item4),
+	length(Item31,Length1),
+	length(Item3,Length2),
+	(Length1=Length2->(A1=Item3,Map1=Item4);
+	minimise_strings2(Numbers2,List1,A1,Map1)).
+
+find_mapped_item(Item3,Item2,Map) :-
+	member([Item3,Item4],Map),
+	string_concat(Item2," 01",Item4).
+
+
+
 string_to_list1([],N,N,Options,Options) :- !.
 string_to_list1(Options1,N1,N2,Options2a,Options2b) :-
 	Options1=[B|Rest],
