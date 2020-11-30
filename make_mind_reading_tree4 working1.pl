@@ -86,22 +86,47 @@ minimise_strings1(List0,A,Map) :-
 	sort(Ls1,Ls2),
 	reverse(Ls2,Ls3),
 	Ls3=[Maximum_length|_],
-	numbers(Maximum_length,1,[],Numbers),
-	minimise_strings2(Numbers,List1,A,Map).
+	numbers(Maximum_length,1,[],Numbers1),
+	minimise_strings11(Numbers1,_Numbers2,List1,List2,First_part),
+	string_length(First_part,First_part_l),
+	Maximum_length2 is Maximum_length-First_part_l+1,
+	numbers(Maximum_length2,1,[],Numbers3),
+	minimise_strings2(Numbers3,List2,First_part,A,Map).
 
-minimise_strings2([],_List1,A,A,Map,Map) :- !.
-minimise_strings2(Numbers1,List1,A1,Map1) :-
+minimise_strings11(Numbers,Numbers,[],[],_) :- !.
+minimise_strings11(Numbers1,Numbers2,List1,List2,First_part) :-
+	Numbers1=[Number|Numbers3],
+	findall(Item2,(member(Item1,List1),string_concat(Item2,_,Item1),
+	string_length(Item2,Number)),Item3),
+	Item3=[First_part2|_],
+	string_concat(First_part1,Char,First_part2),
+	string_length(Char,1),
+	sort(Item3,Item3a),
+	length(Item3,Item3_l),
+	length(List1,List1_l),
+	(Item3_l=List1_l->
+	(Number2 is Number-1,
+	findall(Item4,(member(Item1,List1),string_concat(Item2,Item4,Item1),
+	string_length(Item2,Number2)),Item4a),
+	(length(Item3a,1)->
+	minimise_strings11(Numbers3,Numbers2,List1,List2,First_part);
+	(Numbers2=Numbers1,List2=Item4a,First_part=First_part1)));
+	(Numbers2=Numbers1,List2=List1,First_part=First_part1)).
+
+
+minimise_strings2([],_List1,_,_A,_Map) :- !.
+minimise_strings2(Numbers1,List1,First_part,A1,Map1) :-
 	Numbers1=[Number|Numbers2],
 	findall(Item3a,(member(Item1,List1),string_concat(Item2,_,Item1),
 	string_length(Item2,Number),string_concat(Item2," 01",Item3a)),Item3),
 	sort(Item3,Item31),
 %trace,
-findall([Item3a,Item1],(member(Item1,List1),string_concat(Item2,_,Item1),
-	string_length(Item2,Number),string_concat(Item2," 01",Item3a)),Item4),
+findall([Item3a,Item1a],(member(Item1,List1),string_concat(Item2,_,Item1),
+	string_length(Item2,Number),string_concat(Item2," 01",Item3a),string_concat(First_part,Item1,Item1a)),Item4),
 	length(Item31,Length1),
 	length(Item3,Length2),
 	(Length1=Length2->(A1=Item3,Map1=Item4);
-	minimise_strings2(Numbers2,List1,A1,Map1)).
+	minimise_strings2(Numbers2,List1,First_part,A1,Map1)).
 
 find_mapped_item(Item3,Item2,Map) :-
 	member([Item3,Item4],Map),
