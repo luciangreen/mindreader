@@ -80,6 +80,24 @@ make_mind_reading_tree4_a(Options2a,Options3) :-
 	%writeln1(remove_chains_of_one_child_a([1],Options3c,[],Options3b)),
 	sort(Options3b,Options3),!.
 	
+lists_of_same_length1(List0) :-
+	list1(List0,_,_),
+	List0=[Item1|_],
+	%term_to_atom(Item1,Item2),
+	(list1(Item1,_,_)->Item2=Item1;fail),%[Item1]=Item2),
+	length(Item2,Item2_l),
+	lists_of_same_length2(List0,Item2_l).
+
+lists_of_same_length2([],_Item2_l) :- !.
+lists_of_same_length2(List0,Item2_l) :-
+	List0=[Item1|Rest],
+	(list1(Item1,_,_)->Item2=Item1;fail),%[Item1]=Item2),
+	%term_to_atom(Item1,Item2),	
+	length(Item2,Item2_l),
+	lists_of_same_length2(Rest,Item2_l).
+
+minimise_strings1([List0],[List0],[[List0,List0]]) :- 
+	string(List0),!.
 minimise_strings1(List0,A,Map) :-
 	sort(List0,List1),
 	findall(L,(member(Item,List1),string_length(Item,L)),Ls1),
@@ -131,6 +149,17 @@ findall([Item3a,Item1a],(member(Item1,List1),string_concat(Item2,_,Item1),
 find_mapped_item(Item3,Item2,Map) :-
 	member([Item3,Item4],Map),
 	string_concat(Item2," 01",Item4).
+
+too_long1(List4) :-
+	too_long2(List4,0,N),
+	N>=250.
+
+too_long2([],N,N) :- !.
+too_long2(List4,N1,N2) :-
+	List4=[Item|Rest],
+	string_length(Item,Length),
+	N3 is N1+Length,
+	too_long2(Rest,N3,N2).
 
 
 
@@ -768,3 +797,10 @@ remove_chains_of_one_children3(Options2,Options4,Options3) :-
 	(append(Options2,[[N1,A,N2]],Options5),
 	remove_chains_of_one_children1(N2,Options4,Options5,Options3
 **/
+
+equals_empty_list([]).
+
+get_item_n(Exposition,Number1,Item) :-
+	Number2 is Number1-1,
+	length(List,Number2),
+	append(List,[Item|_],Exposition).
