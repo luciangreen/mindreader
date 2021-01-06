@@ -330,7 +330,14 @@ trialy1(R1) :-
 	mean(S02,A2),
 	(A1>A2->R1=true;R1=fail).
 
-trial0(S3) :- N is 10, trial1(N,[],S),trial01(S,S3).
+trial0(S3) :- N is 10, %trial1(N,[],S),trial01(S,S3).
+catch(
+	(trial1(N,[],S),trial01(S,S3)),
+   _,
+	(trial0(S3)%,writeln(S3)
+	)
+	).
+
 trial01(S1,S3) :-
 	sort(S1,S),
 	%%midpoint(S,MP),
