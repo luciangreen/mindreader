@@ -12,25 +12,37 @@ Please read the following instructions on how to install the project on your com
 
 # Prerequisites
 
-Install List Prolog Interpreter Repository (https://github.com/luciangreen/listprologinterpreter).
+* Please download and install SWI-Prolog for your machine at `https://www.swi-prolog.org/build/`.
 
-Install Text to Breasonings Repository (https://github.com/luciangreen/Text-to-Breasonings).
+***
+* You may need to install gawk using Homebrew.
 
-# Installation from List Prolog Package Manager (LPPM)
+* Install <a href="https://github.com/soimort/translate-shell">Translation Shell</a> on Mac, etc.
+Change line in
+```
+culturaltranslationtool/ctt.pl
+concat_list(["../../../trans ",FromLang,":",ToLang," '",Input1,"'"],F),
+```
+to correct location of <a href="https://github.com/soimort/translate-shell">trans</a>.
 
-* Optionally, you can install from LPPM by installing <a href="https://www.swi-prolog.org/build/">SWI-Prolog</a> for your machine, downloading the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>,
+# 1. Install manually
+
+Download <a href="http://github.com/luciangreen/mindreader/">this repository</a>, the <a href="https://github.com/luciangreen/listprologinterpreter">List Prolog Interpreter repository</a> and the <a href="https://github.com/luciangreen/Text-to-Breasonings">Text to Breasonings Repository</a>.
+
+# 2. Or Install from List Prolog Package Manager (LPPM)
+
+* Download the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>:
+
 ```
 git clone https://github.com/luciangreen/List-Prolog-Package-Manager.git
 cd List-Prolog-Package-Manager
 swipl
+['lppm'].
+lppm_install("luciangreen","mindreader")
+halt
 ```
-loading LPPM with `['lppm'].` then installing the package by running `lppm_install("luciangreen","mindreader").`.
 
-# Installing and Preparation
-
-Download Lucian Green's List Prolog Interpreter Repository and this repository.
-
-**Caution**
+# Caution
 
 - Before running texttobr-based mind reader, think of two radio buttons put on recordings, put through with prayer, nut and bolt, quantum box prayer 1, 1, 0.5 cm and 1, 1, 0.5 cm.
 
@@ -38,9 +50,8 @@ Download Lucian Green's List Prolog Interpreter Repository and this repository.
 
 Please follow instructions in <a href="https://github.com/luciangreen/mindreader/blob/master/init.txt">init.txt</a> to initialise any new mind-reading algorithms.
 
-See instructions on running below
 
-**Important:** Eliminate interference once you get the algorithm working with 4*4000 breasonings for it working: `['../Text-to-Breasonings/texttobr2qb.pl']`.  `texttobr2(64)`. and eliminating any instances of interference with 250 breasonings: `texttobr2(2).` (2) for dotting on and doing it.
+# Running
 
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
