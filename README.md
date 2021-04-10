@@ -14,17 +14,6 @@ Please read the following instructions on how to install the project on your com
 
 * Please download and install SWI-Prolog for your machine at `https://www.swi-prolog.org/build/`.
 
-***
-* You may need to install gawk using Homebrew.
-
-* Install <a href="https://github.com/soimort/translate-shell">Translation Shell</a> on Mac, etc.
-Change line in
-```
-culturaltranslationtool/ctt.pl
-concat_list(["../../../trans ",FromLang,":",ToLang," '",Input1,"'"],F),
-```
-to correct location of <a href="https://github.com/soimort/translate-shell">trans</a>.
-
 # 1. Install manually
 
 Download <a href="http://github.com/luciangreen/mindreader/">this repository</a>, the <a href="https://github.com/luciangreen/listprologinterpreter">List Prolog Interpreter repository</a> and the <a href="https://github.com/luciangreen/Text-to-Breasonings">Text to Breasonings Repository</a>.
