@@ -1,10 +1,11 @@
 Notice
 
-Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.  See also the <a href="https://github.com/luciangreen/Essay-Helper">Essay-Helper repository</a> and the <a href="https://github.com/luciangreen/Music-Composer">Music-Composer Repository</a>.
+Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.
 
 # Mindreader
 
-Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation. 
+* Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation. 
+* See also the <a href="https://github.com/luciangreen/Essay-Helper">Essay-Helper repository</a> and the <a href="https://github.com/luciangreen/Music-Composer">Music-Composer Repository</a>.
 
 # Getting Started
 
