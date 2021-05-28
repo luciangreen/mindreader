@@ -46,13 +46,12 @@ Please follow instructions in <a href="https://github.com/luciangreen/mindreader
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
 In Shell:
-`cd Text-to-Breasonings`
+`cd mindreader`
 In swipl:
 ```
-['text_to_breasonings.pl'].
-['texttobr'].
+['../Text-to-Breasonings/text_to_breasonings.pl'].
 texttobr2(u,"file-songs.txt",u,u,false,false,false,false,false,false).
-texttobr(u,"file-songs.txt",u,u,false,false,false,false,false,false).
+texttobr(u,"file-songs.txt",u,u).
 
 ```
 In Shell:
@@ -64,14 +63,24 @@ postsong(10).  %% For ten songs
 ```
 Write a spiritual letter to your federal government (with a done up A per sentence) to activate the technology.
 In Shell:
-`cd ../Text-to-Breasonings`
+`cd mindreader`
 In swipl:
 
 ```
-['text_to_breasonings.pl'].
-['texttobr'].
+['../Text-to-Breasonings/text_to_breasonings.pl'].
 texttobr2(u,"letter.txt",u,u,false,false,false,false,false,false).
 texttobr2(u,"file-letter.txt",u,u,false,false,false,false,false,false).
+```
+
+In the following, 1 is the number of times the person has a creation A, 80 is the number of years the person has daily connections for mind reading.  If the person is a bot you can't see, it will work.
+```
+N is 1*16+80*365*16,texttobr2(N).
+```
+
+Display a spiritual screen with 'A' above the screen.
+```
+['screen.pl'].
+sectest0.
 ```
 
 Running
