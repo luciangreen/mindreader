@@ -109,7 +109,7 @@ sectest(1).
 ```
 Replace 1 with the number of times to repeat algorithm.
 
-* If necessary, repeat the "arem" mantra all the time while the mind reading computation is running to ensure the best results.
+* If necessary, repeat the "arem" mantra all the time while the mind reading computation is running to ensure the best results. 
 
 # Mind Reading Tree
 
