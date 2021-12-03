@@ -2,8 +2,6 @@ Notice
 
 Mindreader produces vague mind reading results, that remind you of your thoughts but are not actually your thoughts.
 
-* Mind Reader and Text-to-Breasonings are not compatible with the future simulation.
-
 # Mindreader
 
 * Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation. 
