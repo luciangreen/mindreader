@@ -50,7 +50,8 @@ make_mind_reading_tree4(["aaaccc","bbbccc"],
 
 **/
 
-:- include('../listprologinterpreter/la_strings.pl').
+:-include('../listprologinterpreter/la_strings.pl').
+%:- include('../listprologinterpreter/la_strings.pl').
 
 make_mind_reading_tree4(Options0,Options3) :-
 	sort(Options0,Options1),
