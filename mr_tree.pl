@@ -1,5 +1,22 @@
 %% mr_tree.pl
 
+findbest(R,R) :-!.
+findbest2(R,Item):-
+	sort(R,RA),
+	reverse(RA,RB),
+	RB=[[_,Item]|_Rest].
+	
+	concat_list2A(A1,B):-
+	A1=[A|List],
+	concat_list2A(A,List,B),!.
+
+concat_list2A(A,[],A):-!.
+concat_list2A(A,List,B) :-
+	List=[Item|Items],
+	string_concat(A,Item,C),
+	concat_list2A(C,Items,B).
+
+
 mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
 
