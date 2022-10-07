@@ -6,7 +6,7 @@ Mindreader produces vague mind reading results, that remind you of your thoughts
 
 * Contains Prolog programs that can be used by an individual to project spiritual images and read their mind using meditation. 
 * See also the <a href="https://github.com/luciangreen/Essay-Helper">Essay-Helper repository</a> and the <a href="https://github.com/luciangreen/Music-Composer">Music-Composer Repository</a>.
-* <a href="https://github.com/luciangreen/mindreader/edit/master/README.md">Build a daily mind reading "framework"</a> allowing you to run <a href="https://github.com/luciangreen/Algorithm-Writer-with-Lists">Grammar Logic</a> (GL) (details that form the content of high distinctions) and earn money by breasoning them out.
+* <a href="https://github.com/luciangreen/Business/">Build a daily mind reading "framework"</a> allowing you to run <a href="https://github.com/luciangreen/Algorithm-Writer-with-Lists">Grammar Logic</a> (GL) (details that form the content of high distinctions) and earn money by breasoning them out.
 
 # Getting Started
 
