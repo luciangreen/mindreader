@@ -42,12 +42,22 @@ halt
 Please follow instructions in <a href="https://github.com/luciangreen/mindreader/blob/master/init.txt">init.txt</a> to initialise any new mind-reading algorithms.
 
 
-# Running
+# Running Mind Reader from Decision Tree
+
+`cd mindreader`
+
+```
+['../Music-Composer/mindreadtestmusiccomposer-unusual-mr-tree.pl'].
+mind_read(A,[option1,option2]).
+```
+
+# Also to run
 
 Additional instructions for preparing to run screen projector:
 Breason out songs used to help project pixels.
 In Shell:
 `cd mindreader`
+
 In swipl:
 ```
 ['../Text-to-Breasonings/text_to_breasonings.pl'].
