@@ -49,6 +49,7 @@ Please follow instructions in <a href="https://github.com/luciangreen/mindreader
 `cd mindreader`
 
 ```
+swipl
 ['../Music-Composer/mindreadtestmusiccomposer-unusual-mr-tree.pl'].
 mind_read(A,[option1,option2]).
 ```
