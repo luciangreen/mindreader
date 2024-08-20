@@ -19,7 +19,8 @@ join_san(P,Type1,Item),
 mind_read3(Progress1,Progress2,Tree1%,_%,%Tree1,
 %Item2,Item1
 ) :-
-	member([Item2,_,[]],Tree1),append(Progress1,[Item2],Progress2),!.
+	(member([Item2,_,[]],Tree1)->true;
+	[Item2,_,[]]=Tree1),append(Progress1,[Item2],Progress2),!.
 mind_read3(Progress1,Progress2,Options2%,_Options%,%Tree1,
 %Item2,Item1
 ) :-
