@@ -26,7 +26,7 @@ mind_read3(Progress1,Progress2,Options2%,_Options%,%Tree1,
 ) :-
 %trace,
 	%subtract2(Tree1,Options,[],Tree2),
-	member([Item2,_,N2],Options2),
+	mind_read10([Item2,_,N2],Options2),
 	append(Progress1,[Item2],Progress4),
 	mind_read10(%Tree1,
 	Item1,N2),
