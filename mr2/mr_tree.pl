@@ -26,10 +26,14 @@ mind_read3(Progress1,Progress2,Options2%,_Options%,%Tree1,
 ) :-
 %trace,
 	%subtract2(Tree1,Options,[],Tree2),
-	mind_read10([Item2,_,N2],Options2),
-	append(Progress1,[Item2],Progress4),
+	findall(A,member([_,_,A],Options2)%,length(A,L))
+	,A1),
+	foldr(append,A1,A2),
+	%mind_read10([Item2,_,A2],Options2),
 	mind_read10(%Tree1,
-	Item1,N2),
+	Item1,A2),
+	member([Item2,_,A3],Options2),member(Item1,A3),
+	append(Progress1,[Item2],Progress4),
 	mind_read3(Progress4,Progress2,Item1%,_Options%,%Tree1,
 	%Item2,Item1
 	).
@@ -80,7 +84,7 @@ trialy2(List,R) :-
 
 findr4(R4) :-
 		List1=[0,1,2,3,4,5,6,7,8,9],
-		Trials is 30,
+		Trials is 10,
 %catch(
 	(trialy22(List1,Trials,[],R1),
 	findbest2(R1,R4)
