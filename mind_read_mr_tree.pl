@@ -1,143 +1,49 @@
 %% mr_tree.pl
 
-/*
-findbest(R,R) :-!.
-findbest2(R,Item):-
-	sort(R,RA),
-	reverse(RA,RB),
-	RB=[[_,Item]|_Rest].
-	
-	concat_list2A(A1,B):-
-	A1=[A|List],
-	concat_list2A(A,List,B),!.
+% swipl --goal=main2 --stand_alone=true -o mind_read -c mind_read.pl 
+% ./mind_read
 
-concat_list2A(A,[],A):-!.
-concat_list2A(A,List,B) :-
-	List=[Item|Items],
-	string_concat(A,Item,C),
-	concat_list2A(C,Items,B).
-*/
+:-include('../Philosophy/decision_tree.pl').
+:-include('../Philosophy/s2a/strings_atoms_numbers.pl').
+
+main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)),writeln(C))),!.
 
 mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
 
-(lists_of_same_length1(List0)->mind_read_a(Item,List0); 
-%% segment decision trees
-
-mind_read_b(Item,List0)),!. 
-%% 1 decision tree
-
-
-mind_read_a(Item,List0) :-
-
-/**
-	findall(L,(member(Item,List0),string_length(Item,L)),Ls1),
-	sort(Ls1,Ls2),
-	reverse(Ls2,Ls3),
-	Ls3=[Maximum_length|_],
-	numbers(Maximum_length,1,[],Numbers1),
-**/
-
-	mind_read_a_1(List0,[],Item).
-
-%mind_read_a_1([List0],Item1_a,Item1_a2) :-
-%	append(Item1_a,[List0],Item1_a2),!.
-mind_read_a_1(List0,Item1_a,Item1_a2) :-
-	%List0=[List0_1|_Rest],
-	(maplist(equals_empty_list,List0)->(%trace,%append(Item1_a,[Item],Item1_a2));
-	Item1_a=Item1_a2);
-(
-	%trace,	
-findall(Item2_a,(member(List0_1,List0),get_item_n(List0_1,1,Item2_a)),Item2_a1),
-	sort(Item2_a1,Item2_a2),
-
-	findall(D1,(member(D2,Item2_a2),
-	term_to_atom(D2,D3),string_atom(D1,D3)),List1),
+findall([A,Type],(member(A1,List0),get_type(A1,Type), string_strings(A1,A)),List2),
+findall(B,member([B,_],List2),List3),
+decision_tree(List3,List1),
 %trace,
-	
-	%List1=A,
-	findall(B,(member(C,List1),string_concat(C," 01",B)),List2),
-	findall(B,(member(C,List2),(number(C)->number_string(C,B)->true;((atom(C)->atom_string(C,B))->true;(string(C),C=B)))),List3),
-	
-	%trace,
-	
-	minimise_strings1(List3,List4,Map),
+mind_read3([],P,List1),
+member([P,Type1],List2),
+join_san(P,Type1,Item),
+!.
 
-%writeln1(minimise_strings1(List3,List4,Map)),	
-	% findall(B,(member(C,List13),string_concat(C," 01",B)),List),
-
-		%notrace,
-		%trace,
-		%writeln1(make_mind_reading_tree4(List,Tree)),
-	make_mind_reading_tree4(List4,Tree),
-		%writeln1(make_mind_reading_tree4-here1(List,Tree)),
-
-%writeln1(mind_read2(1,Tree,Item1)),
-	mind_read2(1,Tree,Item1),
-writeln1(mind_read2(1,Tree,Item1)),
-writeln(""),
-	%trace,
-	%string_concat(Item3," 01",Item1),
-	find_mapped_item(Item1,Item2,Map),
-	term_to_atom(Item,Item2),
-	
-	(findall(Rest1,(member(Item1_b,List0),%get_item_b(Item1_b,Number,Item1_b1),%Number2 is Number+1,get_item_b(Item1_b,Number2,Item1_b2)
-	Item1_b=[Item|Rest1]),Item1_b2),
-	append(Item1_a,[Item],Item1_a3),
-	mind_read_a_1(Item1_b2,Item1_a3,Item1_a2)))).
-
-mind_read_b(Item,List0) :-
-	findall(D1,(member(D2,List0),term_to_atom(D2,D3),string_atom(D1,D3)),List1),
-%trace,
-	
-	%List1=A,
-	findall(B,(member(C,List1),string_concat(C," 01",B)),List2),
-	findall(B,(member(C,List2),(number(C)->number_string(C,B)->true;((atom(C)->atom_string(C,B))->true;(string(C),C=B)))),List3),
-	
-	%trace,
-	
-	minimise_strings1(List3,List4,Map),
-
-%writeln1(minimise_strings1(List3,List4,Map)),	
-	% findall(B,(member(C,List13),string_concat(C," 01",B)),List),
-
-		%notrace,
-		%trace,
-		%writeln1(make_mind_reading_tree4(List,Tree)),
-	make_mind_reading_tree4(List4,Tree),
-		%writeln1(make_mind_reading_tree4-here1(List,Tree)),
-
-%writeln1(mind_read2(1,Tree,Item1)),
-	mind_read2(1,Tree,Item1),
-writeln1(mind_read2(1,Tree,Item1)),
-writeln(""),
-	%trace,
-	%string_concat(Item3," 01",Item1),
-	find_mapped_item(Item1,Item2,Map),
-	term_to_atom(Item,Item2).
-
-mind_read2(N1,Tree1,Item1) :-
-	findall(Option,member([N1,Option,N2],Tree1),Options),
-	findall([N1,Option,N2],member([N1,Option,N2],Tree1),Options2),
-	%subtract(Tree1,Options,Tree2),
-	mind_read10(Item2,Options),
-	mind_read3(N1,Options2,Options,Tree1,Item2,Item1).
-
-
-numbers(N2,N1,Numbers,Numbers) :-
-	N2 is N1-1,!.
-numbers(N2,N1,Numbers1,Numbers2) :-
-	N3 is N1+1,
-	append(Numbers1,[N1],Numbers3),
-	numbers(N2,N3,Numbers3,Numbers2).
-	
-mind_read3(N1,_,_,Tree1,Item2,Item1) :-
-	member([N1,Item2,[-,Item1]],Tree1),!.
-mind_read3(N1,Options2,_Options,Tree1,Item2,Item1) :-
+mind_read3(Progress1,Progress2,Tree1%,_%,%Tree1,
+%Item2,Item1
+) :-
+	(member([Item2,_,[]],Tree1)->true;
+	[Item2,_,[]]=Tree1),append(Progress1,[Item2],Progress2),!.
+mind_read3(Progress1,Progress2,Options2%,_Options%,%Tree1,
+%Item2,Item1
+) :-
 %trace,
 	%subtract2(Tree1,Options,[],Tree2),
-	member([N1,Item2,N2],Options2),
-	mind_read2(N2,Tree1,Item1).
+	
+	(length(Options2,1)->findall(A,member([_,_,A],Options2)%,length(A,L))
+	,A1);(%trace,
+	Options2=[_,_,A],%trace,
+	A1=[A])),
+	foldr(append,A1,A2),
+	%mind_read10([Item2,_,A2],Options2),
+	mind_read10(%Tree1,
+	Item1,A2),
+	(member([Item2,_,A3],Options2)->true;[Item2,_,A3]=Options2),member(Item1,A3),
+	append(Progress1,[Item2],Progress4),
+	mind_read3(Progress4,Progress2,Item1%,_Options%,%Tree1,
+	%Item2,Item1
+	).
 	
 mind_read10("",[]) :- !.
 mind_read10(Item,[Item]) :-
@@ -155,24 +61,6 @@ writeln1([list,List]),
 	,
 !.
 	%%random_member(Item,List),!.
-	
-mind_read100(Item,List) :-
-	length(List,L),
-	Trials is 3*L,
-	trialy22(List,Trials,[],R1),
-	findbest(R1,Item),!.
-
-mind_read_instruments(Instrument,_) :-
-	instruments_a(Instruments),
-		%notrace,
-		%writeln1(mind_read2(1,Instruments,Item1)),
-
-	mind_read2(1,Instruments,Item1),%->trace;trace),
-			%writeln1(mind_read2-here3(1,Instruments,Item1)),
-
-	%trace,
-	string_concat(Item2," 01",Item1),
-	term_to_atom(Instrument,Item2).
 
 trialy2([],R) :-
 	R=[[_,['C']]].
@@ -203,7 +91,7 @@ trialy2(List,R) :-
 
 findr4(R4) :-
 		List1=[0,1,2,3,4,5,6,7,8,9],
-		Trials is 30,
+		Trials is 10,
 %catch(
 	(trialy22(List1,Trials,[],R1),
 	findbest2(R1,R4)

@@ -21,10 +21,10 @@ use_module(library(pio)).
 %%:- include('texttobr2qbmusic').
 
 %:- include('musiclibrary').
-%:- include('../../listprologinterpreter/la_strings.pl').
-:- include('la_strings.pl').
-:- include('make_mind_reading_tree4 working1.pl').
-:- include('mr_tree.pl').
+%:- include('../listprologinterpreter/listprolog.pl').
+:- include('mind_read_la_strings.pl').
+%:- include('make_mind_reading_tree4 working1.pl').
+:- include('mind_read_mr_tree.pl').
 %:- include('instruments_mr-tree.pl').
 
 max([],M,M) :- !.
