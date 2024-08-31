@@ -4,14 +4,18 @@
 % ./mind_read
 
 :-include('../Philosophy/decision_tree.pl').
-:-include('../Philosophy/s2a/strings_atoms_numbers.pl').
 
 main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)),writeln(C))),!.
+
+get_type(A,list) :- is_list(A),!.
+join_san(P,list,P) :- !.
+
 
 mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
 
-findall([A,Type],(member(A1,List0),get_type(A1,Type), string_strings(A1,A)),List2),
+
+findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;string_strings(A1,A))),List2),
 findall(B,member([B,_],List2),List3),
 decision_tree(List3,List1),
 %trace,
@@ -20,28 +24,31 @@ member([P,Type1],List2),
 join_san(P,Type1,Item),
 !.
 
-mind_read3(Progress1,Progress2,Tree1%,_%,%Tree1,
+mind_read3(Progress1,Progress2,[]%,_%,%Tree1,
 %Item2,Item1
 ) :-
-	(member([Item2,_,[]],Tree1)->true;
-	[Item2,_,[]]=Tree1),append(Progress1,[Item2],Progress2),!.
+	%(fail,member([Item2,_,[]],Tree1)->true;
+	%[Item2,_,[]]=Tree1),
+	append(Progress1,[%Item2
+	],Progress2),!.
 mind_read3(Progress1,Progress2,Options2%,_Options%,%Tree1,
 %Item2,Item1
 ) :-
 %trace,
 	%subtract2(Tree1,Options,[],Tree2),
 	
-	(length(Options2,1)->findall(A,member([_,_,A],Options2)%,length(A,L))
-	,A1);(%trace,
-	Options2=[_,_,A],%trace,
-	A1=[A])),
-	foldr(append,A1,A2),
+	%(true%length(Options2,1)
+	%->findall(A,member([_,_,A],Options2)%,length(A,L))
+	%,A1);(trace,
+	%Options2=[_,_,A],%trace,
+	%A1=[A])),
+	%foldr(append,A1,A2),
 	%mind_read10([Item2,_,A2],Options2),
 	mind_read10(%Tree1,
-	Item1,A2),
-	(member([Item2,_,A3],Options2)->true;[Item2,_,A3]=Options2),member(Item1,A3),
+	[Item2,_,A2],Options2),
+	%(member([Item2,_,A3],Options2)->true;[Item2,_,A3]=Options2),member(Item1,A3),
 	append(Progress1,[Item2],Progress4),
-	mind_read3(Progress4,Progress2,Item1%,_Options%,%Tree1,
+	mind_read3(Progress4,Progress2,A2%,_Options%,%Tree1,
 	%Item2,Item1
 	).
 	
@@ -66,28 +73,16 @@ trialy2([],R) :-
 	R=[[_,['C']]].
 	%%writeln([[],in,trialy2]),abort.
 trialy2(List,R) :-
+	length(List,Length),
+
 %%writeln([list,List]),
 %%notrace,
-	length(List,Length),
-	((Length=<9->
-		findr4(R4),
-		number_string(R4,R4A),
-		formr5([R4A],9,Length,R5),
-		findr(R5,List,R));
-	(Length=<99->
-		findr4(R41),
-		findr4(R42),
-		formr5([R41,R42],99,Length,R5),
-		findr(R5,List,R));
-	(Length=<999->
-		findr4(R41),
-		findr4(R42),
-		findr4(R43),
-		formr5([R41,R42,R43],999,Length,R5),
-		findr(R5,List,R));
-	fail),
-	%%writeln([r,R]),trace.
-	true.
+log(Length,A),log(10,C),B is floor(A/C)+1,
+numbers(B,1,[],D),
+findall(R,(member(_E,D),findr4(R1),number_string(R1,R)),RL),
+B2 is floor(10^((floor(A/C)+1))-1),
+formr5(RL,B2,Length,R5),
+findr(R5,List,R).
 
 findr4(R4) :-
 		List1=[0,1,2,3,4,5,6,7,8,9],
