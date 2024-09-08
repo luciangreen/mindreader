@@ -5,7 +5,7 @@
 
 :-include('../Philosophy/decision_tree.pl').
 
-main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)),writeln(C))),!.
+%main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)),writeln(C))),!.
 
 get_type(A,list) :- is_list(A),!.
 join_san(P,list,P) :- !.
