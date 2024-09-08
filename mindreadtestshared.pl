@@ -1,5 +1,7 @@
 %% Name, DOB, Date learned, psych appointment month=1 or 2, psych appointment day, thoughts count
 
+:-include('mind_read.pl').
+
 sectest0 :-
 sectest([first,last,dobd,dobm,doby,daylearned,monthlearned,yearlearned,1,0,16]),
 sectest([first,last,dobd,dobm,doby,daylearned,monthlearned,yearlearned,1,0,16]).
@@ -319,104 +321,3 @@ trialy2_81(Label,RA) :-
 	%%(member(true,R)->(
 	aggregate_all(count, member(true,R), Count),
 	RA=[Count,Label].%%,writeln([Label,Count,"/10"]));true).
-
-trialy1(R1) :-
-	%%control11(A1),
-	trial0(A22), %% Control
-	sum(A22,0,S22),
-	mean(S22,A1),
-	trial0(A21), %% Test 1
-	sum(A21,0,S02),
-	mean(S02,A2),
-	(A1>A2->R1=true;R1=fail).
-
-trial0(S3) :- N is 10, %trial1(N,[],S),trial01(S,S3).
-catch(
-	(trial1(N,[],S),trial01(S,S3)),
-   _,
-	(trial0(S3)%,writeln(S3)
-	)
-	).
-
-trial01(S1,S3) :-
-	sort(S1,S),
-	%%midpoint(S,MP),
-	halves(S,H1,H2),
-	midpoint(H1,Q1),
-	midpoint(H2,Q3),
-	IQR is Q3-Q1,
-	sum(S,0,S02),
-	mean(S02,Mean),
-	furthestfrommean(S,Mean,V),
-	D1 is 1.5*IQR,
-	D2 is V-Mean,
-	(D2>D1->(delete(S,V,S2),trial01(S2,S3));S=S3).
-	
-trial1(0,A,A) :- !.
-trial1(N,A,B) :- mindreadtest(S), append(A,[S],A2),
-	N1 is N-1,trial1(N1,A2,B).
-	
-midpoint(S,MP) :-
-	length(S,L),
-	A is mod(L,2),
-	(A is 0->
-		(M1 is L/2, M2 is M1+1,N1 is M1-1,N2 is M2-1,length(N11,N1),length(N21,N2),append(N11,[N12|_Rest1],S),append(N21,[N22|_Rest2],S),MP is (N12+N22)/2)
-	;
-		(L2 is L+1, M1 is L2/2, N1 is M1-1,length(N11,N1),append(N11,[MP|_Rest],S))).
-
-halves(S,H1,H2) :-
-	length(S,L),
-	A is mod(L,2),
-	(A is 0->
-		(M1 is L/2,length(H1,M1),append(H1,H2,S))
-	;
-		(L2 is L-1,M1 is L2/2,length(H1,M1),append(H1,[_|H2],S))).
-
-sum([],S,S):-!.
-sum(S0,S1,S2) :-
-	S0=[S3|S4],
-	S5 is S1+S3,
-	sum(S4,S5,S2).
-	
-mean(Sum,Mean) :-
-	Mean is Sum/2.
-
-furthestfrommean(S,Mean,V) :-
-	absdiffmean(S,Mean,[],D),
-	sort(D,D1),
-	reverse(D1,[[_,V]|_Rest]).
-
-absdiffmean([],_M,D,D) :- !.
-absdiffmean(S,M,D1,D2) :-
-	S=[S1|S2],
-	S3 is abs(S1-M),
-	append(D1,[[S3,S1]],D3),
-	absdiffmean(S2,M,D3,D2).
-
-mindreadtest(Sec) :-
-	%% 250 br for characters to be br out with 10 br each from person to me - do when initial 250 br test done and doing 10 br test
-	%%comment(fiftyastest),
-	%%random(X),X1 is 10*X, X2 is floor(X1), (X2=<2 -> (
-	%%texttobr,writeln(['true test']), %%); %% use breasonings breasoned out by computer for not by me, for job medicine for "me", at last time point
-	%%true), %% leave last time point blank
-	%%**texttobr2(640);true),%% make an A to detect reaction to gracious giving or blame of in following
-	get_time(TimeStamp1),
-	%%phrase_from_file(string(_String), 'file.txt'),
-	texttobr2(2), %% 100 As for answer (must be br before this on same day)
-	%% is gracious giving or blame
-	get_time(TimeStamp2),
-	%%comment(turnoffas),
-   Sec is TimeStamp2 - TimeStamp1.
-
-shell1(Command) :-
-				(bash_command(Command,_)->
-					true;
-					(writeln(["Failed shell1 command: ",Command]),abort)
-				),!.
-
-bash_command(Command, Output) :-
-        setup_call_cleanup(process_create(path(bash),
-                ['-c', Command],
-                [stdout(pipe(Out))]),
-        read_string(Out, _, Output),
-        close(Out)).

@@ -10,6 +10,7 @@ main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)
 get_type(A,list) :- is_list(A),!.
 join_san(P,list,P) :- !.
 
+%mind_read(A,B) :-random_member(A,B),!.
 
 mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
@@ -59,8 +60,8 @@ mind_read10(Item,List) :-
 writeln1([list,List]),
 %trace,
 %%catch(
-	(trialy2(List,R1),
-	findbest(R1,Item),
+	(trialy2_mr(List,R1),
+	findbest_mr(R1,Item),
 	writeln1([item,Item]))
    %_,
 	%mind_read10(Item,List)
@@ -69,10 +70,10 @@ writeln1([list,List]),
 !.
 	%%random_member(Item,List),!.
 
-trialy2([],R) :-
+trialy2_mr([],R) :-
 	R=[[_,['C']]].
-	%%writeln([[],in,trialy2]),abort.
-trialy2(List,R) :-
+	%%writeln([[],in,trialy2_mr]),abort.
+trialy2_mr(List,R) :-
 	length(List,Length),
 
 %%writeln([list,List]),
@@ -89,7 +90,7 @@ findr4(R4) :-
 		Trials is 10,
 %catch(
 	(trialy22(List1,Trials,[],R1),
-	findbest2(R1,R4)
+	findbest2_mr(R1,R4)
 	%writeln1([item,Item])
 	)
    %_,
@@ -302,3 +303,8 @@ too_long2(List4,N1,N2) :-
 	N3 is N1+Length,
 	too_long2(Rest,N3,N2).
 
+findbest_mr(R,R) :-!.
+findbest2_mr(R,Item):-
+	sort(R,RA),
+	reverse(RA,RB),
+	RB=[[_,Item]|_Rest].
