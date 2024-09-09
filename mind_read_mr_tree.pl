@@ -227,3 +227,25 @@ findbest2_mr(R,Item):-
 	sort(R,RA),
 	reverse(RA,RB),
 	RB=[[_,Item]|_Rest].
+
+
+% mind_read_create_dt([1,2,3],DT,Types).
+
+mind_read_create_dt(List0,List1,Types) :-
+
+findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;string_strings(A1,A))),Types),
+findall(B,member([B,_],Types),List3),
+decision_tree(List3,List1),!.
+
+
+% mind_read_dt_filled(Item,DT,Types).
+
+mind_read_dt_filled(Item,[Item],List2) :- !.
+mind_read_dt_filled(Item,List0,List2) :-
+
+
+%trace,
+mind_read3([],P,List0),
+member([P,Type1],List2),
+join_san(P,Type1,Item),
+!.
