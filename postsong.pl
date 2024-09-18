@@ -1,4 +1,4 @@
-:- include('../Text-to-Breasonings/text_to_breasonings.pl').
+:-include('../Text-to-Breasonings/text_to_breasonings.pl').
 
 postsong(0) :- !.
 postsong(N1) :-

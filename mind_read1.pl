@@ -14,18 +14,18 @@
 use_module(library(pio)).
 
 :- use_module(library(date)).
-%%:- include('texttobr2qb').
-%%:- include('mindreadtestshared').
-%%:- include('texttobr2').
-%%:- include('texttobr').
-%%:- include('texttobr2qbmusic').
+%%:-include('texttobr2qb').
+%%:-include('mindreadtestshared').
+%%:-include('texttobr2').
+%%:-include('texttobr').
+%%:-include('texttobr2qbmusic').
 
-%:- include('musiclibrary').
-%:- include('../listprologinterpreter/listprolog.pl').
-:- include('mind_read_la_strings.pl').
-%:- include('make_mind_reading_tree4 working1.pl').
-:- include('mind_read_mr_tree.pl').
-%:- include('instruments_mr-tree.pl').
+%:-include('musiclibrary').
+%:-include('../listprologinterpreter/listprolog.pl').
+:-include('mind_read_la_strings.pl').
+%:-include('make_mind_reading_tree4 working1.pl').
+:-include('mind_read_mr_tree.pl').
+%:-include('instruments_mr-tree.pl').
 
 max([],M,M) :- !.
 max(List1,Max1,Max2) :-
