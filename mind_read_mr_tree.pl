@@ -81,7 +81,8 @@ trialy2_mr(List,R) :-
 log(Length,A),log(10,C),B is floor(A/C)+1,
 numbers(B,1,[],D),
 findall(R,(member(_E,D),findr4(R1),number_string(R1,R)),RL),
-B2 is floor(10^((floor(A/C)+1))-1),
+D1 is floor(A/C)+1,
+B2 is floor((10^D1)-1),
 formr5(RL,B2,Length,R5),
 findr(R5,List,R).
 
