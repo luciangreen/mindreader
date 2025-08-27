@@ -3,7 +3,7 @@
 % swipl --goal=main2 --stand_alone=true -o mind_read -c mind_read.pl 
 % ./mind_read
 
-:-include('../Philosophy/decision_tree.pl').
+:-include('decision_tree.pl').
 
 %main2:-time((length(A,30),time(findall(B,(member(_,A),mind_read(B, [11, 22])),C)),writeln(C))),!.
 

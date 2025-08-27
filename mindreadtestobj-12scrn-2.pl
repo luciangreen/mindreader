@@ -1,8 +1,8 @@
 %%use_module(library(pio)).
 
-:- use_module(library(date)).
+%% :- use_module(library(date)). %% Not needed - functionality is commented out
 :-include('mindreadtestshared').
-:-include('../Text-to-Breasonings/texttobr2qb.pl').
+:-include('texttobr2qb.pl').
 
 %%sectest0 :-
 %%repeat,sectest,sectest0.
