@@ -13,7 +13,7 @@
 
 use_module(library(pio)).
 
-:- use_module(library(date)).
+%% :- use_module(library(date)). %% Not needed - functionality is commented out
 %%:-include('texttobr2qb').
 %%:-include('mindreadtestshared').
 %%:-include('texttobr2').
