@@ -1,7 +1,6 @@
 %% Name, DOB, Date learned, psych appointment month=1 or 2, psych appointment day, thoughts count
 
 :-include('mind_read.pl').
-:-include('mind_read_mr_tree.pl').
 
 sectest0 :-
 sectest([first,last,dobd,dobm,doby,daylearned,monthlearned,yearlearned,1,0,16]),

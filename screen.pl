@@ -2,7 +2,7 @@
 
 %% Breason out 10 scrnsongs
 
-:-include('texttobr2qb.pl').
+:-include('../Text-to-Breasonings/text_to_breasonings.pl').
 
 %% run postsong/postsong.
 %% before sectest0.
