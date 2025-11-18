@@ -16,7 +16,10 @@ mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
 
 
-findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;(term_to_atom(A1,A2),string_strings(A2,A)))),List2),
+findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;(Type=compound->tokens_from_atom(A1,A);%term_to_atom(A1,A2),
+string_strings(A1,A)))
+)
+,List2),
 findall(B,member([B,_],List2),List3),
 decision_tree(List3,List1),
 %trace,
@@ -234,7 +237,7 @@ findbest2_mr(R,Item):-
 
 mind_read_create_dt(List0,List1,Types) :-
 
-findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;string_strings(A1,A))),Types),
+findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;(Type=compound->tokens_from_atom(A1,A);string_strings(A1,A)))),Types),
 findall(B,member([B,_],Types),List3),
 decision_tree(List3,List1),!.
 
@@ -250,3 +253,31 @@ mind_read3([],P,List0),
 member([P,Type1],List2),
 join_san(P,Type1,Item),
 !.
+
+
+:- use_module(library(readutil)).  % SWI; omit if not needed
+
+% term_tokens(+Term, -Tokens)
+term_tokens(Term, [Term]) :-
+    atomic(Term),                             % atoms, numbers, strings, blobs
+    !.
+term_tokens(Term, Tokens) :-
+    compound(Term),
+    Term =.. [F|Args],
+    tokens_args(Args, ArgsTokens),
+    append([F, '(' | ArgsTokens], [')'], Tokens).
+
+% tokens_args(+Args, -Tokens)
+tokens_args([A], Tokens) :-                  % last arg: no trailing comma
+    term_tokens(A, AToks),
+    append(AToks, [], Tokens).
+tokens_args([A,B|Rest], Tokens) :-           % more args: insert commas
+    term_tokens(A, AToks),
+    tokens_args([B|Rest], BToks),
+    append(AToks, [','|BToks], Tokens).
+
+% convenience: from text
+tokens_from_atom(Atom, Tokens) :-
+	term_to_atom(Atom,Atom1),
+    read_term_from_atom(Atom1, Term, []),
+    term_tokens(Term, Tokens),!.
