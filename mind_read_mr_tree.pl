@@ -16,7 +16,7 @@ mind_read(Item,[Item]) :- !.
 mind_read(Item,List0) :-
 
 
-findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;string_strings(A1,A))),List2),
+findall([A,Type],(member(A1,List0),once(get_type(A1,Type)), (Type=list->A1=A;(term_to_atom(A1,A2),string_strings(A2,A)))),List2),
 findall(B,member([B,_],List2),List3),
 decision_tree(List3,List1),
 %trace,
